@@ -1,0 +1,66 @@
+DROP SEQUENCE cod_prod;
+DROP SEQUENCE cod_esp;
+DROP SEQUENCE cod_fid;
+
+CREATE SEQUENCE cod_prod
+    MINVALUE 0
+    START WITH 0
+    INCREMENT BY 1;
+    
+CREATE SEQUENCE cod_esp
+    MINVALUE 0
+    START WITH 0
+    INCREMENT BY 1;
+    
+CREATE SEQUENCE cod_fid
+    MINVALUE 0
+    START WITH 0
+    INCREMENT BY 1;
+    
+-- modelo de inserção na tabela pessoa
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
+    VALUES ('123.456.789-00', 'Vinicius', '123abc@gmail.com', 34550765, 'Rua José de Souza Rodovalho', 45, 'Casa');
+
+-- modelo de inserção na tabela telefones  
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES (955684765, '123.456.789-00');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES (954384700, '123.456.789-00');
+    
+-- modelo de inserção na tabela funcionario
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ();
+    
+-- modelo de inserção na tabela vendedor
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+    VALUES ();
+    
+-- modelo de inserção na tabela cliente
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ();
+    
+-- modelo de inserção na tabela espaco
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES ();
+    
+-- modelo de inserção na tabela produto
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES ();
+    
+-- modelo de inserção na tabela assistente
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ();
+    
+-- modelo de inserção na tabela cartao_fidelidade
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ();
+    
+-- modelo de inserção na tabela venda
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ();
+    
+-- modelo de inserção na tabela disponibiliza
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ();
