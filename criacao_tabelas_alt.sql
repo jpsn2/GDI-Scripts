@@ -1,15 +1,15 @@
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 
 DROP TABLE Telefones;
-DROP TABLE Funcionario;
-DROP TABLE Vendedor;
-DROP TABLE Cliente;
-DROP TABLE Espaco;
-DROP TABLE Produto;
 DROP TABLE Assistente;
 DROP TABLE Cartao_Fidelidade;
 DROP TABLE Venda;
 DROP TABLE Disponibiliza;
+DROP TABLE Vendedor;
+DROP TABLE Cliente;
+DROP TABLE Espaco;
+DROP TABLE Produto;
+DROP TABLE Funcionario;
 DROP TABLE Pessoa;
 
 CREATE TABLE Pessoa (
@@ -31,7 +31,7 @@ CREATE TABLE Telefones(
     num_tel varchar2(12),
     cpf_pessoa char(11),
     constraint telefones_pk primary key (num_tel, cpf_pessoa),
-    constraint num_tel_ck check (REGEXP_LIKE(num_tel, '(\d{2-3}?)(9?\d{8})')),
+    constraint num_tel_ck check (REGEXP_LIKE(num_tel, '(\d{2-3})?(9?\d{8})')),
     -- constraint cpf_pessoa_tel_ck check (cpf_pessoa LIKE '___________'),
     constraint cpf_pessoa_tel_ck check (REGEXP_LIKE(cpf_pessoa, '\d{11}')),
     constraint cpf_pessoa_tel_fk foreign key (cpf_pessoa)
