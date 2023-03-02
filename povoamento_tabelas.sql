@@ -119,13 +119,77 @@ INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervis
     
 -- inserção na tabela vendedor
 
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('72610547200', '28/09/2021');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('02702912532', '25/12/2022');
 INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-    VALUES ();
+	VALUES ('21542193818', '14/02/2019', '49155590088587');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('26348686850', '10/12/2021', '69799235852540');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('37521229517', '23/01/2021');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('23238276344', '03/04/2022');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('11467512060', '31/10/2019', '95348312139969');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('24366201640', '13/08/2022', '29569137111307');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('25666674978', '16/11/2023', '39667455254750');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('38540174804', '15/05/2020');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('41582782792', '10/10/2019');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('25455186892', '24/07/2023');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('18041727662', '20/03/2022', '29836175987778');
+INSERT INTO vendedor(cpf_vendedor, data_registro)
+	VALUES ('86385882594', '11/10/2021');
+INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
+	VALUES ('62704882819', '11/12/2023', '72900262685102');
     
 -- inserção na tabela cliente
 
 INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ();
+    VALUES ('44882211491', '78239009188379');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('17267832946');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('64784744290');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('85449302711');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('26348686850', '40744428773628');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('37521229517', '39718905425493');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('11467512060', '95348312139969');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('31109286635');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('24366201640');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('25666674978', '39667455254750');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('75708608706', '14919544252152');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('38540174804');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('29586233197', '39286626777506');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('41582782792');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('89987766420', '36951827922116');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('70775502227');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('07262636308', '43837950543179');
+INSERT INTO cliente(cpf_cliente)
+    VALUES ('86385882594');
+INSERT INTO cliente(cpf_cliente, cnpj)
+    VALUES ('25952848788', '24090254388633');
     
 -- inserção na tabela espaco
 
