@@ -77,9 +77,19 @@ INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
     VALUES ('62704882819', 'Noah Alves', 'nha256@gmail.com', '68906091', 'Rua Santa Tereza', 830, 'Casa');
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
-    VALUES ('06661573325', 'Arthur Nogueira', 'athn776543999@gmail.com', '27213000', 'Rua A', 'Casa');
+    VALUES ('06651573325', 'Arthur Nogueira', 'athn776543999@gmail.com', '27213000', 'Rua A', 'Casa');
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero)
     VALUES ('25952848788', 'Isabel Rodrigues', 'ir4432211@gmail.com', '69312593', 'Rua Sobral', 32);
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('06402073325', 'Vitor Henrique', 'vithen@gmail.com', '24020000', 'Rua Almeida', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('40510573325', 'Vinicius José', 'vinjose@gmail.com', '27556600', 'Rua Imperial', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('56991573326', 'Marcelo Campos', 'macam@gmail.com', '88926600', 'Rua Aurora', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
+    VALUES ('90805502227', 'Fernanda Diniz', 'ferdi@gmail.com', '64289080', 'Rua Sá e Souza', 725, 'apt. 401');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
+    VALUES ('99124502227', 'Fabio Alpes','fabal@gmail.com', '64289080', 'Rua Cruzeiro do Forte', 112, 'Casa');
 
 -- inserção na tabela telefones  
 
@@ -115,7 +125,17 @@ INSERT INTO telefones(num_tel, cpf_pessoa)
 -- inserção na tabela funcionario
 
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ();
+    VALUES ('06651573325','15/09/2021','Monitor',1500,'06402073325');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('06402073325','22/07/2021','Monitor',2200,'56991573326');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('40510573325','12/04/2021','Monitor',2300,'56991573326');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('56991573326','02/04/2021','Gerente ',2700,'40510573325');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('90805502227','07/01/2021','Gerente ',2850,'56991573326');   
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('99124502227','15/02/2021','Gerente ',2700,'90805502227');
     
 -- inserção na tabela vendedor
 
@@ -170,7 +190,7 @@ INSERT INTO cliente(cpf_cliente)
     VALUES ('31109286635');
 INSERT INTO cliente(cpf_cliente)
     VALUES ('24366201640');
-INSERT INTO cliente(cpf_cliente, cnpj)
+INSERT INTO cliente(cpf_cliente, cnpj) 
     VALUES ('25666674978', '39667455254750');
 INSERT INTO cliente(cpf_cliente, cnpj)
     VALUES ('75708608706', '14919544252152');
@@ -194,7 +214,27 @@ INSERT INTO cliente(cpf_cliente, cnpj)
 -- inserção na tabela espaco
 
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ();
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06651573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'P','P',12,'06651573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06402073325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'06402073325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'40510573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',15,'56991573326');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'56991573326');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'90805502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'90805502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'99124502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',13,'99124502227');
     
 -- inserção na tabela produto
 
