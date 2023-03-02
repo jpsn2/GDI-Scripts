@@ -21,7 +21,6 @@ CREATE SEQUENCE cod_fid
 -- inserção na tabela pessoa
 
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
-    -- VALUES ('123.456.789-00', 'Vinicius', '123abc@gmail.com', 34550765, 'Rua José de Souza Rodovalho', 45, 'Casa');
     VALUES ('58235053454', 'Amanda Caldeira', 'ac123@gmail.com', '49038420', 'Rua Orlando Sobral dos Santos', 45, 'Casa');
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
     VALUES ('44882211491', 'Miguel Alves', 'ma356@outlook.com', '29090820', 'Rua Victorino Cardoso', 2, 'Casa');
@@ -85,10 +84,8 @@ INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero)
 -- inserção na tabela telefones  
 
 INSERT INTO telefones(num_tel, cpf_pessoa)
-    -- VALUES (955684765, '123.456.789-00');
     VALUES ('36386225', '58235053454');
 INSERT INTO telefones(num_tel, cpf_pessoa)
-    -- VALUES (954384700, '123.456.789-00');
     VALUES ('7923149467', '58235053454');
 INSERT INTO telefones(num_tel, cpf_pessoa)
     VALUES ('984149467', '44882211491');
