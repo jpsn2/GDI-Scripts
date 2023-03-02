@@ -214,27 +214,27 @@ INSERT INTO cliente(cpf_cliente, cnpj)
 -- inserção na tabela espaco
 
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100001,'P','P',11,'06651573325');
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06651573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100002'P','P',12,'06651573325');
+    VALUES (cod_esp.NEXTVAL,'P','P',12,'06651573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100003,'P','P',11,'06402073325');
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06402073325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100004,'M','P',12,'06402073325');
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'06402073325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100005,'M','B',14,'40510573325');
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'40510573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100006,'M','B',15,'56991573326');
+    VALUES (cod_esp.NEXTVAL,'M','B',15,'56991573326');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100007,'G','B',17,'56991573326');
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'56991573326');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100008,'G','B',17,'90805502227');
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'90805502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100009,'M','B',14,'90805502227');
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'90805502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100010,'M','P',12,'99124502227');
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'99124502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (100011,'M','P',13,'99124502227');
+    VALUES (cod_esp.NEXTVAL,'M','P',13,'99124502227');
     
 -- inserção na tabela produto
 
