@@ -125,17 +125,17 @@ INSERT INTO telefones(num_tel, cpf_pessoa)
 -- inserção na tabela funcionario
 
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('06651573325','15/09/2021','Monitor','1500','06402073325');
+    VALUES ('06651573325','15/09/2021','Monitor',1500,'06402073325');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('06402073325','22/07/2021','Monitor','2200','56991573326');
+    VALUES ('06402073325','22/07/2021','Monitor',2200,'56991573326');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('40510573325','12/04/2021','Monitor','2300','56991573326');
+    VALUES ('40510573325','12/04/2021','Monitor',2300,'56991573326');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('56991573326','02/04/2021','Gerente ','2700','40510573325');
+    VALUES ('56991573326','02/04/2021','Gerente ',2700,'40510573325');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('90805502227','07/01/2021','Gerente ','2850','56991573326');   
+    VALUES ('90805502227','07/01/2021','Gerente ',2850,'56991573326');   
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ('99124502227','15/02/2021','Gerente ','2700','90805502227');
+    VALUES ('99124502227','15/02/2021','Gerente ',2700,'90805502227');
     
 -- inserção na tabela vendedor
 
@@ -190,7 +190,7 @@ INSERT INTO cliente(cpf_cliente)
     VALUES ('31109286635');
 INSERT INTO cliente(cpf_cliente)
     VALUES ('24366201640');
-INSERT INTO cliente(cpf_cliente, cnpj)
+INSERT INTO cliente(cpf_cliente, cnpj) 
     VALUES ('25666674978', '39667455254750');
 INSERT INTO cliente(cpf_cliente, cnpj)
     VALUES ('75708608706', '14919544252152');
@@ -214,27 +214,27 @@ INSERT INTO cliente(cpf_cliente, cnpj)
 -- inserção na tabela espaco
 
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100001','P','P','11','06651573325');
+    VALUES (100001,'P','P',11,'06651573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100002','P','P','12','06651573325');
+    VALUES (100002'P','P',12,'06651573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100003','P','P','11','06402073325');
+    VALUES (100003,'P','P',11,'06402073325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100004','M','P','12','06402073325');
+    VALUES (100004,'M','P',12,'06402073325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100005','M','B','14','40510573325');
+    VALUES (100005,'M','B',14,'40510573325');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100006','M','B','15','56991573326');
+    VALUES (100006,'M','B',15,'56991573326');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100007','G','B','17','56991573326');
+    VALUES (100007,'G','B',17,'56991573326');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100008','G','B','17','90805502227');
+    VALUES (100008,'G','B',17,'90805502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100009','M','B','14','90805502227');
+    VALUES (100009,'M','B',14,'90805502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100010','M','P','12','99124502227');
+    VALUES (100010,'M','P',12,'99124502227');
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ('100011','M','P','13','99124502227');
+    VALUES (100011,'M','P',13,'99124502227');
     
 -- inserção na tabela produto
 
