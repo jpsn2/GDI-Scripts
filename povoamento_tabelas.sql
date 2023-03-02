@@ -204,12 +204,50 @@ INSERT INTO produto(cod_produto, valor, tipo, nome)
 -- inserção na tabela assistente
 
 INSERT INTO assistente(cpf_vendedor, nome)
-    VALUES ();
+    VALUES ('02702912532', 'Rodrigo Ferreira de Souza');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('26348686850', 'Renato Martins de Moura');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('37521229517', 'Marília Luísa de Santana');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('24366201640', 'Ruy Magalhães');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('24366201640', 'Pedro Souza Silva');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('25666674978', 'Ana Souza de Lima');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('41582782792', 'Luísa Freire');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('18041727662', 'Adriano de Souza Lima');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('18041727662', 'Guilherme De Luca');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('62704882819', 'Pedro Luís Silva');
+INSERT INTO assistente(cpf_vendedor, nome)
+    VALUES ('62704882819', 'Lucas Pereira de Morais');
     
 -- inserção na tabela cartao_fidelidade
 
 INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
-    VALUES ();
+    VALUES ('44882211491', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('64784744290', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('85449302711', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('37521229517', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('24366201640', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('25666674978', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('29586233197', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('41582782792', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('89987766420', cod_fid.NEXTVAL);
+INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
+    VALUES ('86385882594', cod_fid.NEXTVAL);
     
 -- inserção na tabela venda
 
