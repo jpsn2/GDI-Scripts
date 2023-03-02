@@ -115,7 +115,25 @@ INSERT INTO telefones(num_tel, cpf_pessoa)
 -- inserção na tabela funcionario
 
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
-    VALUES ();
+    VALUES ('25952848788', '02/03/2023', 'Supervisor', 3000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('06661573325', '05/08/2022', 'Munitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('62704882819', '10/11/2022', 'Gerente', 5000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('86385882594', '11/11/2022', 'Gerente', 5000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('07262636308', '30/05/2022', 'Munitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('70775502227', '29/09/2022', 'Munitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('18041727662', '29/09/2022', 'Munitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('89987766420', '20/01/2023', 'Munitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('25455186892', '15/01/2023', 'Gerente', 5000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('41582782792', '02/03/2023', 'Supervisor', 3000, '25952848788');
     
 -- inserção na tabela vendedor
 
