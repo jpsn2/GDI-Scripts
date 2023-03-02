@@ -90,6 +90,30 @@ INSERT INTO telefones(num_tel, cpf_pessoa)
 INSERT INTO telefones(num_tel, cpf_pessoa)
     -- VALUES (954384700, '123.456.789-00');
     VALUES ('7923149467', '58235053454');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('984149467', '44882211491');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('923991327', '17267832946');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('923148027', '72610547200');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('988931207', '64784744290');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('999149467', '02702912532');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('923149499', '21542193818');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('995439467', '85449302711');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('942749467', '26348686850');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('915009467', '37521229517');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('977749467', '23238276344');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('974209467', '48174058303');
+INSERT INTO telefones(num_tel, cpf_pessoa)
+    VALUES ('940609467', '11467512060');
     
 -- inserção na tabela funcionario
 
