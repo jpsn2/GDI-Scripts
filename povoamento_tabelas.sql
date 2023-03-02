@@ -257,7 +257,35 @@ INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
 -- inserção na tabela produto
 
 INSERT INTO produto(cod_produto, valor, tipo, nome)
-    VALUES ();
+    VALUES (cod_prod.NEXTVAL, 2.5, 'Fruta', 'Abacate');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 3, 'Fruta', 'Abacaxi');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.2, 'Fruta', 'Banana');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 4.5, 'Fruta', 'Graviola');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.8, 'Fruta', 'Mamão');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 3.5, 'Hortaliça', 'Beterraba');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.25, 'Hortaliça', 'Chuchu');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 2, 'Hortaliça', 'Repolho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 11.9, 'Pescado', 'Sardinha');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 48, 'Pescado', 'Bacalhau');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 2.3, 'Cereais e Diversos', 'Milho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 4.6, 'Cereais e Diversos', 'Arroz Branco');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 32, 'Carne', 'Charque Bovina');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 22, 'Laticíneo', 'Queijo Coalho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 0.6, 'Ovos', 'Ovo Branco');
     
 -- inserção na tabela assistente
 
