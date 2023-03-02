@@ -136,7 +136,25 @@ INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervis
     VALUES ('90805502227','07/01/2021','Gerente',2850,'56991573326');   
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('99124502227','15/02/2021','Gerente ',2700,'90805502227');
-    
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('41582782792', '02/03/2023', 'Supervisor', 3000, '99124502227');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('25952848788', '02/03/2023', 'Supervisor', 3000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('62704882819', '10/11/2022', 'Gerente', 5000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('86385882594', '11/11/2022', 'Gerente', 5000, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('07262636308', '30/05/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('70775502227', '29/09/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('18041727662', '29/09/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('89987766420', '20/01/2023', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('25455186892', '15/01/2023', 'Gerente', 5000, '41582782792');
+
 -- inserção na tabela vendedor
 
 INSERT INTO vendedor(cpf_vendedor, data_registro)
