@@ -345,4 +345,46 @@ INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
 
 INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
     hora_inicio, hora_fim, data_inicio, data_fim)
-    VALUES ();
+    VALUES ('72610547200', '18041727662', 1, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('02702912532', '06402073325', 2, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('21542193818', '06651573325', 3, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('26348686850', '06402073325', 4, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('37521229517', '06402073325', 5, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('23238276344', '06651573325', 6, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('11467512060', '89987766420', 7, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('24366201640', '40510573325', 8, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('25666674978', '06402073325', 9, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('38540174804', '06651573325', 10, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('41582782792', '06402073325', 0, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('25455186892', '07262636308', 10, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('18041727662', '70775502227', 7, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('86385882594', '70775502227', 1, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('62704882819', '06402073325', 3, 14, 18, '23/12/2022', '23/05/2023');
