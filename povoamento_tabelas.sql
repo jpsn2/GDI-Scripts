@@ -342,19 +342,13 @@ INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     VALUES ('25/01/2023 14:30:00', 4, '44882211491', '72610547200', '18041727662', 0.07, 7, 4.5, 4.5 * 7 * 0.93);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('26/01/2023 16:00:00', 5, '17267832946', '2702912532', '18041727662', 0.08, 19, 1.8, 1.8 * 19 * 0.92);
-INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
-    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('27/01/2023 10:15:00', 8, '64784744290', '21542193818', '62704882819', 0.05, 13, 2, 2 * 13 * 0.05);
+    VALUES ('27/01/2023 10:15:00', 8, '64784744290', '21542193818', '62704882819', 0.05, 13, 2, 2 * 13 * 0.95);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('28/01/2023 09:00:00', 10, '85449302711', '26348686850', '18041727662', 0, 14, 48, 48 * 14 * 1);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('03/01/2023 09:00:00', 7, '26348686850', '37521229517', '56991573326', 0.02, 11, 1.25, 1.25 * 11 * 0.98);
-INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
-    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('03/02/2023 09:00:00', 1, '37521229517', '23238276344', '6402073325', 0.08, 13, 2.5, 2.5 * 13 * 0.08);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('03/03/2023 09:00:00', 6, '11467512060', '11467512060', '56991573326', 0, 14, 3.5, 3.5 * 14 * 1);
@@ -384,19 +378,10 @@ INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     VALUES ('02/03/2023 12:23:35', 5, '25666674978', '72610547200', '06402073325', 0.05, 10, 1.8, 1.8 * 10 * 0.95);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('06/03/2023 14:30:00', 9, '75316473482', '25666674978', '18041727662', 0.05, 10, 2.5, 2.5 * 10 * 0.95);
-INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor, 
-    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('07/03/2023 16:00:00', 1, '64784744290', '2702912532', '62704882819', 0.12, 5, 4, 4 * 5 * 0.88);
-INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
-    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('08/03/2023 10:15:00', 3, '85449302711', '21542193818', '18041727662', 0.06, 8, 1.5, 1.5 * 8 * 0.94);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('09/03/2023 09:00:00', 5, '44882211491', '26348686850', '56991573326', 0, 20, 2.2, 2.2 * 20 * 1);
-INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
-    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ('10/03/2023 09:00:00', 8, '37521229517', '23238276344', '6402073325', 0.05, 15, 2.5, 2.5 * 15 * 0.95);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
     VALUES ('11/03/2023 09:00:00', 2, '26348686850', '37521229517', '99124502227', 0.03, 10, 4, 4 * 10 * 0.97);
