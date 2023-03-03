@@ -339,7 +339,7 @@ INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
 
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ();
+    VALUES ('02/03/2023 12:23:35', 5, '25666674978', '72610547200', '06402073325', 0.05, 10, 1.8, 1.8 * 10 * 0.95);
     
 -- inserção na tabela disponibiliza
 
