@@ -77,9 +77,19 @@ INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
     VALUES ('62704882819', 'Noah Alves', 'nha256@gmail.com', '68906091', 'Rua Santa Tereza', 830, 'Casa');
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
-    VALUES ('06661573325', 'Arthur Nogueira', 'athn776543999@gmail.com', '27213000', 'Rua A', 'Casa');
+    VALUES ('06651573325', 'Arthur Nogueira', 'athn776543999@gmail.com', '27213000', 'Rua A', 'Casa');
 INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero)
     VALUES ('25952848788', 'Isabel Rodrigues', 'ir4432211@gmail.com', '69312593', 'Rua Sobral', 32);
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('06402073325', 'Vitor Henrique', 'vithen@gmail.com', '24020000', 'Rua Almeida', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('40510573325', 'Vinicius José', 'vinjose@gmail.com', '27556600', 'Rua Imperial', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, complemento)
+    VALUES ('56991573326', 'Marcelo Campos', 'macam@gmail.com', '88926600', 'Rua Aurora', 'Casa');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
+    VALUES ('90805502227', 'Fernanda Diniz', 'ferdi@gmail.com', '64289080', 'Rua Sá e Souza', 725, 'apt. 401');
+INSERT INTO pessoa(cpf_pessoa, nome, email, cep, rua, numero, complemento)
+    VALUES ('99124502227', 'Fabio Alpes','fabal@gmail.com', '64289080', 'Rua Cruzeiro do Forte', 112, 'Casa');
 
 -- inserção na tabela telefones  
 
@@ -114,15 +124,34 @@ INSERT INTO telefones(num_tel, cpf_pessoa)
     
 -- inserção na tabela funcionario
 
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario)
+    VALUES ('56991573326','02/04/2021','Diretor',8000);
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+<<<<<<< HEAD
     VALUES ('25952848788', '02/03/2023', 'Supervisor', 3000, '41582782792');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('06661573325', '05/08/2022', 'Munitor', 4500, '41582782792');
+=======
+    VALUES ('06402073325','22/07/2021','Monitor',2200,'56991573326');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('06651573325','15/09/2021','Monitor',1500,'06402073325');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('40510573325','12/04/2021','Monitor',2300,'56991573326');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('90805502227','07/01/2021','Gerente',2850,'56991573326');   
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('99124502227','15/02/2021','Gerente ',2700,'90805502227');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('41582782792', '02/03/2023', 'Supervisor', 3000, '99124502227');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('25952848788', '02/03/2023', 'Supervisor', 3000, '41582782792');
+>>>>>>> 7d946a8d1121d25cbecc96670cc6581b97fa9306
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('62704882819', '10/11/2022', 'Gerente', 5000, '41582782792');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('86385882594', '11/11/2022', 'Gerente', 5000, '41582782792');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+<<<<<<< HEAD
     VALUES ('07262636308', '30/05/2022', 'Munitor', 4500, '41582782792');
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('70775502227', '29/09/2022', 'Munitor', 4500, '41582782792');
@@ -135,6 +164,18 @@ INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervis
 INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
     VALUES ('41582782792', '02/03/2023', 'Supervisor', 3000, '25952848788');
     
+=======
+    VALUES ('07262636308', '30/05/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('70775502227', '29/09/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('18041727662', '29/09/2022', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('89987766420', '20/01/2023', 'Monitor', 4500, '41582782792');
+INSERT INTO funcionario(cpf_funcionario, data_adm, funcao, salario, cpf_supervisor)
+    VALUES ('25455186892', '15/01/2023', 'Gerente', 5000, '41582782792');
+
+>>>>>>> 7d946a8d1121d25cbecc96670cc6581b97fa9306
 -- inserção na tabela vendedor
 
 INSERT INTO vendedor(cpf_vendedor, data_registro)
@@ -188,7 +229,7 @@ INSERT INTO cliente(cpf_cliente)
     VALUES ('31109286635');
 INSERT INTO cliente(cpf_cliente)
     VALUES ('24366201640');
-INSERT INTO cliente(cpf_cliente, cnpj)
+INSERT INTO cliente(cpf_cliente, cnpj) 
     VALUES ('25666674978', '39667455254750');
 INSERT INTO cliente(cpf_cliente, cnpj)
     VALUES ('75708608706', '14919544252152');
@@ -212,12 +253,60 @@ INSERT INTO cliente(cpf_cliente, cnpj)
 -- inserção na tabela espaco
 
 INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES ();
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06651573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'P','P',12,'06651573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'P','P',11,'06402073325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'06402073325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'40510573325');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',15,'56991573326');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'56991573326');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'G','B',17,'90805502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','B',14,'90805502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',12,'99124502227');
+INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
+    VALUES (cod_esp.NEXTVAL,'M','P',13,'99124502227');
     
 -- inserção na tabela produto
 
 INSERT INTO produto(cod_produto, valor, tipo, nome)
-    VALUES ();
+    VALUES (cod_prod.NEXTVAL, 2.5, 'Fruta', 'Abacate');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 3, 'Fruta', 'Abacaxi');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.2, 'Fruta', 'Banana');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 4.5, 'Fruta', 'Graviola');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.8, 'Fruta', 'Mamão');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 3.5, 'Hortaliça', 'Beterraba');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 1.25, 'Hortaliça', 'Chuchu');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 2, 'Hortaliça', 'Repolho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 11.9, 'Pescado', 'Sardinha');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 48, 'Pescado', 'Bacalhau');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 2.3, 'Cereais e Diversos', 'Milho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 4.6, 'Cereais e Diversos', 'Arroz Branco');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 32, 'Carne', 'Charque Bovina');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 22, 'Laticíneo', 'Queijo Coalho');
+INSERT INTO produto(cod_produto, valor, tipo, nome)
+    VALUES (cod_prod.NEXTVAL, 0.6, 'Ovos', 'Ovo Branco');
     
 -- inserção na tabela assistente
 
@@ -269,12 +358,105 @@ INSERT INTO cartao_fidelidade(cpf_cliente, cod_cartao)
     
 -- inserção na tabela venda
 
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor, 
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('25/01/2023 14:30:00', 4, '44882211491', '72610547200', '18041727662', 0.07, 7, 4.5, 4.5 * 7 * 0.93);
 INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
     cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
-    VALUES ();
-    
+    VALUES ('27/01/2023 10:15:00', 8, '64784744290', '21542193818', '62704882819', 0.05, 13, 2, 2 * 13 * 0.95);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('28/01/2023 09:00:00', 10, '85449302711', '26348686850', '18041727662', 0, 14, 48, 48 * 14 * 1);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('03/01/2023 09:00:00', 7, '26348686850', '37521229517', '56991573326', 0.02, 11, 1.25, 1.25 * 11 * 0.98);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('03/03/2023 09:00:00', 6, '11467512060', '11467512060', '56991573326', 0, 14, 3.5, 3.5 * 14 * 1);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('03/04/2023 09:00:00', 7, '31109286635', '24366201640', '56991573326', 0, 19, 1.25, 1.25 * 19 * 1);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('05/03/2023 09:00:00', 8, '24366201640', '25666674978', '90805502227', 0.10, 20, 2, 2 * 20 * 0.9);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('02/03/2023 09:00:00', 2, '25666674978', '38540174804', '99124502227', 0.04, 14, 3, 3 * 14 * 0.96);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('03/03/2023 09:00:00', 2, '75708608706', '41582782792', '41582782792', 0.08, 15, 3, 3 * 15 * 0.92);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor, 
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('04/03/2023 09:00:00', 6, '38540174804', '25455186892', '41582782792', 0.09, 7, 3.5, 3.5 * 7 * 0.91);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('05/03/2023 09:00:00', 8, '29586233197', '18041727662', '41582782792', 0.06, 19, 2, 19 * 2 * 0.94);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('06/03/2023 09:00:00', 2, '41582782792', '86385882594', '41582782792', 0.07, 9, 3, 3 * 9 * 0.93);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('02/03/2023 12:23:35', 5, '25666674978', '72610547200', '06402073325', 0.05, 10, 1.8, 1.8 * 10 * 0.95);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('08/03/2023 10:15:00', 3, '85449302711', '21542193818', '18041727662', 0.06, 8, 1.5, 1.5 * 8 * 0.94);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('09/03/2023 09:00:00', 5, '44882211491', '26348686850', '56991573326', 0, 20, 2.2, 2.2 * 20 * 1);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('11/03/2023 09:00:00', 2, '26348686850', '37521229517', '99124502227', 0.03, 10, 4, 4 * 10 * 0.97);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('12/03/2023 09:00:00', 6, '31109286635', '25666674978', '56991573326', 0, 10, 3.5, 3.5 * 10 * 1);
+INSERT INTO venda(data_hora, cod_produto, cpf_cliente, cpf_vendedor,
+    cpf_funcionario, desconto, quantidade, valor_unit, valor_total)
+    VALUES ('13/03/2023 09:00:00', 4, '11467512060', '24366201640', '90805502227', 0.10, 15, 3, 3 * 15 * 0.9);
+
 -- inserção na tabela disponibiliza
 
 INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
     hora_inicio, hora_fim, data_inicio, data_fim)
-    VALUES ();
+    VALUES ('72610547200', '18041727662', 1, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('02702912532', '06402073325', 2, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('21542193818', '06651573325', 3, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('26348686850', '06402073325', 4, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('37521229517', '06402073325', 5, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('23238276344', '06651573325', 6, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('11467512060', '89987766420', 7, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('24366201640', '40510573325', 8, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('25666674978', '06402073325', 9, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('38540174804', '06651573325', 10, 8, 12, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('41582782792', '06402073325', 0, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('25455186892', '07262636308', 10, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('18041727662', '70775502227', 7, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('86385882594', '70775502227', 1, 14, 18, '23/12/2022', '23/05/2023');
+INSERT INTO disponibiliza(cpf_vendedor, cpf_funcionario, cod_espaco,
+    hora_inicio, hora_fim, data_inicio, data_fim)
+    VALUES ('62704882819', '06402073325', 3, 14, 18, '23/12/2022', '23/05/2023');

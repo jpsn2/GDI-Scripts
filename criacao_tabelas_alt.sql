@@ -1,4 +1,5 @@
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD-MM-YYYY HH24-MI-SS';
 
 DROP TABLE Telefones;
 DROP TABLE Assistente;
@@ -23,7 +24,7 @@ CREATE TABLE Pessoa (
     constraint pessoa_pk primary key(cpf_pessoa),
     constraint cpf_pessoa_ck check (REGEXP_LIKE(cpf_pessoa, '\d{11}')),
     constraint email_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)')),
-    constraint cep_ck check (cep LIKE '________')
+    constraint cep_ck check (REGEXP_LIKE(cep, '\d{8}'))
 );
 
 CREATE TABLE Telefones(
@@ -41,7 +42,7 @@ CREATE TABLE Funcionario (
     data_adm date not null,
     funcao varchar2(20) not null,
     salario number not null,
-    cpf_supervisor char(11) not null unique,
+    cpf_supervisor char(11),
     constraint salario_ck check (salario >= 0),
     constraint cpf_funcionario_ck check (REGEXP_LIKE(cpf_funcionario, '\d{11}')),
     constraint cpf_supervisor_ck check (REGEXP_LIKE(cpf_supervisor, '\d{11}')),
