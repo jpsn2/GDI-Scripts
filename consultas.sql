@@ -1,3 +1,4 @@
+-- ======================= SQL
 -- ALTER TABLE
 ALTER TABLE pessoa
 MODIFY nome varchar2(80);
@@ -131,3 +132,6 @@ WHERE nome LIKE '%Caldeira%';
 -- GRANT/ REVOKE
 GRANT READ on v
 TO PUBLIC;
+
+
+-- ========================== PL
