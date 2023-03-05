@@ -1,3 +1,11 @@
+-- ALTER TABLE
+ALTER TABLE pessoa
+MODIFY nome varchar2(80);
+
+-- CREATE INDEX
+CREATE INDEX i
+ON funcionario(cpf_funcionario, cpf_supervisor);
+
 -- INSERT INTO
 INSERT INTO telefones(num_tel, cpf_pessoa)
     VALUES('974563927', '62704882819');
@@ -93,7 +101,7 @@ WHERE salario > ALL(SELECT salario
 
 -- ORDER BY
 SELECT *
-FROM produtos
+FROM produto
 ORDER BY valor;
 
 -- GROUP BY
@@ -102,19 +110,24 @@ FROM espaco
 GROUP BY tipo;
 
 -- HAVING
-SELECT tipo, COUNT(tipo)
+SELECT tipo, COUNT(*)
 FROM produto
 GROUP BY tipo
-HAVING COUNT(tipo) > 5;
+HAVING COUNT(*) > 2;
 
 -- UNION ou INTERSECT ou MINUS
 SELECT f.cpf_funcionario
-FROM funcionario
+FROM funcionario f
 UNION
 SELECT v.cpf_vendedor
-FROM vendedor;
+FROM vendedor v;
 
 -- CREATE VIEW
 CREATE VIEW v AS
 SELECT *
-FROM 
+FROM pessoa
+WHERE nome LIKE '%Caldeira%';
+
+-- GRANT/ REVOKE
+GRANT READ on v
+TO PUBLIC;
