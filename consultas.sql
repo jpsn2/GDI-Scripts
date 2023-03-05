@@ -8,7 +8,7 @@ SET salario = 3000
 WHERE cpf_funcionario = '99124502227';
 
 -- DELETE
-DELETE FROM telefone
+DELETE FROM telefones
 WHERE cpf_pessoa = '58235053454'
     AND num_tel = '36386225';
 
@@ -63,11 +63,11 @@ GROUP BY tipo;
 -- LEFT ou RIGHT ou FULL JOIN
 SELECT p.nome, t.num_tel
 FROM pessoa p
-LEFT JOIN telefone t
+LEFT JOIN telefones t
     ON p.cpf_pessoa = t.cpf_pessoa;
 
 -- SUBCONSULTA COM OPERADOR RELACIONAL
-SELECT pt.nome
+SELECT *
 FROM funcionario f
 WHERE salario = (SELECT MAX(salario)
                 FROM funcionario);
@@ -85,9 +85,36 @@ WHERE cpf_vendedor = ANY (SELECT cpf_vendedor
                             FROM assistente);
 
 -- SUBCONSULTA COM ALL
-SELECT pd.nome
-FROM produto pd
-WHERE pd.cod_produto = ALL(SELECT DISTINCT cod_produto
-                            FROM venda
-                            WHERE quantidade >= 10);
+SELECT DISTINCT funcao
+FROM funcionario
+WHERE salario > ALL(SELECT salario
+                    FROM funcionario
+                    WHERE funcao LIKE '%Monitor%');
 
+-- ORDER BY
+SELECT *
+FROM produtos
+ORDER BY valor;
+
+-- GROUP BY
+SELECT tipo, COUNT(tipo)
+FROM espaco
+GROUP BY tipo;
+
+-- HAVING
+SELECT tipo, COUNT(tipo)
+FROM produto
+GROUP BY tipo
+HAVING COUNT(tipo) > 5;
+
+-- UNION ou INTERSECT ou MINUS
+SELECT f.cpf_funcionario
+FROM funcionario
+UNION
+SELECT v.cpf_vendedor
+FROM vendedor;
+
+-- CREATE VIEW
+CREATE VIEW v AS
+SELECT *
+FROM 
