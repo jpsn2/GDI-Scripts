@@ -135,3 +135,137 @@ TO PUBLIC;
 
 
 -- ========================== PL
+-- RECORD
+DECLARE
+    CREATE TYPE Funcionario_record IS RECORD funcionario%ROWTYPE;
+BEGIN
+END;
+
+-- TABLE
+DECLARE
+    CREATE TYPE Funcionario_table IS TABLE OF funcionario%ROWTYPE;
+BEGIN
+END;
+
+-- BLOCO ANÔNIMO
+DECLARE
+    p_out := 'Hello World!';
+BEGIN
+    DBMS_OUTPUT.PUT_LINE(p_out);
+END;
+
+-- PROCEDURE
+CREATE PROCEDURE proc_
+IS
+BEGIN
+END;
+
+-- FUNCTION
+CREATE FUNCTION func_ (
+
+)
+RETURN <>
+IS
+BEGIN
+END;
+
+-- %TYPE
+DECLARE
+    func_cpf := funcionario.cpf_funcionario%TYPE;
+BEGIN
+END;
+
+-- %ROWTYPE
+DECLARE
+    CREATE TYPE vend_reg IS RECORD vendedor%ROWTYPE;
+BEGIN
+END;
+
+-- IF ELSIF
+DECLARE
+BEGIN
+    IF <> THEN
+        <>
+    ELSIF <> THEN
+        <>
+    END IF;
+END;
+
+-- CASE WHEN
+DECLARE
+BEGIN
+    CASE <>
+    WHEN <> THEN <>;
+    WHEN <> THEN <>;
+    WHEN <> THEN <>;
+    END CASE;
+END;
+
+-- LOOP EXIT WHEN
+DECLARE
+BEGIN
+    LOOP
+        <>;
+        EXIT WHEN <>;
+    END LOOP;
+END;
+
+-- WHILE LOOP
+DECLARE
+BEGIN
+    WHILE <> LOOP
+        <>
+    END LOOP;
+END;
+
+-- FOR IN LOOP
+DECLARE
+BEGIN
+    FOR <> IN <>..<> LOOP
+        <>
+    END LOOP;
+END;
+
+-- SELECT INTO
+DECLARE
+BEGIN
+    SELECT <> INTO <>
+    FROM <>;
+END;
+
+-- CURSOR -> OPEN, FETCH e CLOSE
+DECLARE
+    CURSOR <> IS <>;
+BEGIN
+    OPEN <>;
+    FETCH <> INTO <>;
+    CLOSE <>;
+END;
+
+-- EXCEPTION WHEN
+DECLARE
+BEGIN
+EXCEPTION
+    WHEN <> THEN
+        <>;
+END;
+
+-- PARÂMETROS
+DECLARE
+    CREATE FUNCTION <> (
+        param <>
+    )
+    RETURN <>
+    IS
+    BEGIN
+    END;
+
+    param := <>;
+BEGIN
+    <>(param);
+END;
+
+-- CREATE OR REPLACE PACKAGE
+-- CREATE OR REPLACE PACKAGE BODY
+-- CREATE OR REPLACE TRIGGER (COMANDO)
+-- CREATE OR REPLACE TRIGGER (LINHA)
