@@ -154,10 +154,16 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(p_out);
 END;
 
--- PROCEDURE
-CREATE PROCEDURE proc_
+-- PROCEDURE 
+CREATE PROCEDURE Insere_vendedor(
+    v_cpf_vendedor Vendedor.cpf_vendedor%TYPE,
+    v_data_registro Vendedor.data_registro%TYPE,
+    v_cnpj Vendedor.cnpj%TYPE)
 IS
 BEGIN
+    INSERT INTO Vendedor(cpf_vendedor,data_registro,cnpj)
+        VALUES(v_cpf_vendedor,v_data_registro,v_cnpj) ;
+    COMMIT;
 END;
 
 -- FUNCTION
