@@ -154,11 +154,12 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE(p_out);
 END;
 
--- PROCEDURE 
-CREATE PROCEDURE Insere_vendedor(
-    v_cpf_vendedor Vendedor.cpf_vendedor%TYPE,
-    v_data_registro Vendedor.data_registro%TYPE,
-    v_cnpj Vendedor.cnpj%TYPE)
+-- PROCEDURE
+CREATE OR REPLACE PROCEDURE insereVendedor (
+    v_cpf Vendedor.cpf_vendedor%TYPE,
+    v_data Vendedor.data_registro%TYPE,
+    v_cnpj Vendedor.cnpj%TYPE
+)
 IS
 BEGIN
     INSERT INTO Vendedor(cpf_vendedor,data_registro,cnpj)
@@ -167,8 +168,7 @@ BEGIN
 END;
 
 -- FUNCTION
-CREATE FUNCTION func_ (
-
+CREATE OR REPLACE FUNCTION func_ (
 )
 RETURN <>
 IS
