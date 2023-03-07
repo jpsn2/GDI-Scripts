@@ -160,9 +160,11 @@ CREATE OR REPLACE PROCEDURE insereVendedor (
     v_data Vendedor.data_registro%TYPE,
     v_cnpj Vendedor.cnpj%TYPE
 )
-IS INSERT INTO Vendedor (cpf_vendedor, data_registro, cnpj)
-VALUES (v_cpf, v_data, v_cnpj)
+IS
 BEGIN
+    INSERT INTO Vendedor(cpf_vendedor,data_registro,cnpj)
+        VALUES(v_cpf_vendedor,v_data_registro,v_cnpj) ;
+    COMMIT;
 END;
 
 -- FUNCTION
