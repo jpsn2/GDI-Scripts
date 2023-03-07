@@ -155,14 +155,18 @@ BEGIN
 END;
 
 -- PROCEDURE
-CREATE PROCEDURE proc_
-IS
+CREATE OR REPLACE PROCEDURE insereVendedor (
+    v_cpf Vendedor.cpf_vendedor%TYPE,
+    v_data Vendedor.data_registro%TYPE,
+    v_cnpj Vendedor.cnpj%TYPE
+)
+IS INSERT INTO Vendedor (cpf_vendedor, data_registro, cnpj)
+VALUES (v_cpf, v_data, v_cnpj)
 BEGIN
 END;
 
 -- FUNCTION
-CREATE FUNCTION func_ (
-
+CREATE OR REPLACE FUNCTION func_ (
 )
 RETURN <>
 IS
