@@ -341,11 +341,22 @@ END;
 
 -- CURSOR -> OPEN, FETCH e CLOSE
 DECLARE
-    CURSOR <> IS <>;
+    nome_assis assistente.nome%TYPE;
+
+    CURSOR assists IS
+    SELECT nome
+    FROM assistente;
 BEGIN
-    OPEN <>;
-    FETCH <> INTO <>;
-    CLOSE <>;
+    OPEN assists;
+
+    LOOP
+        FETCH assists INTO nome_assis;
+        EXIT WHEN assists%NOTFOUND;
+
+        dbms_output.put_line(nome_assis);
+    END LOOP;
+
+    CLOSE assists;
 END;
 
 -- EXCEPTION WHEN
@@ -374,6 +385,54 @@ BEGIN
 END;
 
 -- CREATE OR REPLACE PACKAGE
+CREATE OR REPLACE PACKAGE tel_package AS
+    -- pessoa não existe
+    e_pessoaInexistente EXCEPTION;
+
+    -- insere telefone 
+    PROCEDURE insere_telefone(
+        cpf pessoa.cpf_pessoa%TYPE,
+        telefone telefones.num_tel%TYPE
+    );
+END tel_package;
+
 -- CREATE OR REPLACE PACKAGE BODY
+CREATE OR REPLACE PACKAGE BODY tel_package AS
+    -- insere telefone 
+    PROCEDURE insere_telefone(
+        cpf pessoa.cpf_pessoa%TYPE,
+        telefone telefones.num_tel%TYPE
+    ) IS
+    BEGIN
+        INSERT INTO telefones(cpf_pessoa, num_tel)
+            VALUES(cpf, telefone);
+
+        IF SQL%NOTFOUND THEN
+            RAISE e_pessoaInexistente;
+        END IF;
+
+        COMMIT;
+    END insere_telefone;
+END tel_package;
+
 -- CREATE OR REPLACE TRIGGER (COMANDO)
+CREATE OR REPLACE TRIGGER notifica_venda
+AFTER INSERT OR UPDATE OR DELETE ON venda
+BEGIN
+    IF INSERTING THEN
+        dbms_output.put_line('venda realizada!');
+    ELSIF UPDATING THEN
+        dbms_output.put_line('venda atualizada!');
+    ELSIF DELETING THEN
+        dbms_output.put_line('venda deletada!');
+    END IF;
+END;
+
 -- CREATE OR REPLACE TRIGGER (LINHA)
+CREATE OR REPLACE TRIGGER verifica_tel
+BEFORE UPDATE ON telefones
+FOR EACH ROW
+BEGIN
+    dbms_output.put_line('Número antigo: ' || :OLD.num_tel ||
+        ' | Número novo: ' || :NEW.num_tel);
+END;
