@@ -1,17 +1,15 @@
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD-MM-YYYY HH24-MI-SS';
 
-DROP TABLE Telefones;
-DROP TABLE Assistente;
-DROP TABLE Cartao_Fidelidade;
-DROP TABLE Venda;
-DROP TABLE Disponibiliza;
-DROP TABLE Vendedor;
-DROP TABLE Cliente;
-DROP TABLE Espaco;
-DROP TABLE Produto;
-DROP TABLE Funcionario;
-DROP TABLE Pessoa;
+DROP TABLE tb_Telefone;
+DROP TABLE tb_Venda;
+DROP TABLE tb_Disponibiliza;
+DROP TABLE tb_Vendedor;
+DROP TABLE tb_Cliente;
+DROP TABLE tb_Espaco;
+DROP TABLE tb_Produto;
+DROP TABLE tb_Funcionario;
+DROP TABLE tb_Endereco;
 
 --------------------- criação de tipos
 
@@ -19,7 +17,7 @@ CREATE OR REPLACE TYPE tp_Telefone AS OBJECT(
     num_tel varchar2(12)
 )FINAL;
 /
-CREATE OR REPLACE TYPE tp_Telefones AS VARRAY(10) of tp_Telefone;
+CREATE OR REPLACE TYPE tp_Telefones AS VARRAY(10) of REF tp_Telefone;
 /
 CREATE OR REPLACE TYPE tp_Endereco AS OBJECT(
     cep char(8),
@@ -32,7 +30,7 @@ CREATE OR REPLACE TYPE tp_Pessoa AS OBJECT(
     cpf char(11),
     nome varchar2(60),
     email varchar2(60),
-    endereco tp_Endereco,
+    endereco REF tp_Endereco,
     telefones tp_Telefones,
     MEMBER PROCEDURE mostraPessoa,
     MAP MEMBER FUNCTION get_Cep RETURN char
@@ -223,29 +221,36 @@ CREATE OR REPLACE TYPE tp_Disponibiliza AS OBJECT(
 
 --------------------- criação de tabelas
 
+CREATE TABLE tb_Telefone OF tp_Telefone(
+    num_tel primary key
+);
+
+CREATE TABLE tb_Endereco OF tp_Endereco(
+    cep primary key,
+    constraint cep_cliente_ck check (REGEXP_LIKE(cep, '\d{8}'))
+);
+
 CREATE TABLE tb_Funcionario OF tp_Funcionario (
     cpf primary key,
     supervisor SCOPE IS tb_Funcionario,
+    endereco WITH ROWID REFERENCES tb_Endereco,
     constraint salario_ck check (salario >= 0),
     constraint cpf_func_ck check (REGEXP_LIKE(cpf, '\d{11}')),
-    constraint email_func_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)')),
-    constraint cep_func_ck check (REGEXP_LIKE(endereco.cep, '\d{8}'))
+    constraint email_func_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)'))
 );
 
 CREATE TABLE tb_Vendedor OF tp_Vendedor (
     cpf primary key,
     constraint cpf_vend_ck check (REGEXP_LIKE(cpf, '\d{11}')),
     constraint cnpj_vend_ck check (REGEXP_LIKE(cnpj, '\d{14}')),
-    constraint email_vend_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)')),
-    constraint cep_vend_ck check (REGEXP_LIKE(endereco.cep, '\d{8}'))
+    constraint email_vend_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)'))
 ) NESTED TABLE assistentes STORE AS tb_Assistentes;
 
 CREATE TABLE tb_Cliente OF tp_Cliente (
     cpf primary key,
     constraint cpf_cliente_ck check (REGEXP_LIKE(cpf, '\d{11}')),
     constraint cnpj_cliente_ck check (REGEXP_LIKE(cnpj, '\d{14}')),
-    constraint email_cliente_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)')),
-    constraint cep_cliente_ck check (REGEXP_LIKE(endereco.cep, '\d{8}'))
+    constraint email_cliente_ck check (REGEXP_LIKE(email, '(.+)@(.+)\.(.+)'))
 );
 
 CREATE TABLE tb_Espaco OF tp_Espaco (
