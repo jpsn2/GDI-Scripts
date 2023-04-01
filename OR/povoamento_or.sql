@@ -18,253 +18,190 @@ CREATE SEQUENCE cod_fid
     START WITH 0
     INCREMENT BY 1;
 
-tp_Pessoa(
-    '58235053454', 'Amanda Caldeira', 'ac123@gmail.com', 
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '58235053454', 'Amanda Caldeira', 'ac123@gmail.com', 
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '44882211491', 'Miguel Alves', 'ma356@outlook.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '44882211491', 'Miguel Alves', 'ma356@outlook.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '17267832946', 'Ana Vitória Vieira', 'avc259@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '17267832946', 'Ana Vitória Vieira', 'avc259@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '72610547200', 'Pedro Lucas Barbosa', 'plb2526@yahoo.com.br',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '72610547200', 'Pedro Lucas Barbosa', 'plb2526@yahoo.com.br',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '64784744290', 'João Nascimento', 'jn2@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '64784744290', 'João Nascimento', 'jn2@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '02702912532', 'Calebe Ferreira', 'cf9485@hotmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '02702912532', 'Calebe Ferreira', 'cf9485@hotmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '21542193818', 'Eduardo Cardoso', 'ec3333@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '21542193818', 'Eduardo Cardoso', 'ec3333@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '85449302711', 'Marcelo Rocha', 'mrq45@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '85449302711', 'Marcelo Rocha', 'mrq45@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '26348686850', 'Kamilly Aragão', 'kafd56367@outlook.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '26348686850', 'Kamilly Aragão', 'kafd56367@outlook.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '37521229517', 'Luana Melo', 'lm@cin.ufpe.br',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '37521229517', 'Luana Melo', 'lm@cin.ufpe.br',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '23238276344', 'Ana Júlia das Neves', 'ajdn0935@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '23238276344', 'Ana Júlia das Neves', 'ajdn0935@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '48174058303', 'Antônio Cardoso', 'ac53h@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '48174058303', 'Antônio Cardoso', 'ac53h@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '11467512060', 'Larissa Moura', 'lm@yahoo.com.br',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '11467512060', 'Larissa Moura', 'lm@yahoo.com.br',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '31109286635', 'Renan Silveira', 'rsj32j@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '31109286635', 'Renan Silveira', 'rsj32j@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '24366201640', 'Kevin Almeida', 'ka4325@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '24366201640', 'Kevin Almeida', 'ka4325@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '25666674978', 'Carolina Duarte', 'cd87875672678@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '25666674978', 'Carolina Duarte', 'cd87875672678@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '75708608706', 'Pedro Lucas Martins', 'plm24243f@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '75708608706', 'Pedro Lucas Martins', 'plm24243f@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '36481215706', 'Letícia da Cunha', 'ldc435@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '36481215706', 'Letícia da Cunha', 'ldc435@gmail.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '38540174804', 'Bruna Monteiro', 'bmdsaf24@outlook.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '38540174804', 'Bruna Monteiro', 'bmdsaf24@outlook.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '29586233197', 'Manuela Caldeira', 'mc432659@outlook.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
+tp_(
+    tp_Pessoa(
+        '29586233197', 'Manuela Caldeira', 'mc432659@outlook.com',
+        (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
+        tp_Telefones(tp_Telefone())
+    )
 );
 
-tp_Pessoa(
-    '41582782792', 'Alice Jesus', 'aj2463@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
 
-tp_Pessoa(
-    '25455186892', 'Luiz Felipe da Costa', 'lfdc@hotmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('984149467');
 
-tp_Pessoa(
-    '89987766420', 'Helena Barbosa', 'hb245@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('923991327');
 
-tp_Pessoa(
-    '18041727662', 'Thales Nogueira', 'tn90825@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('923148027');
 
-tp_Pessoa(
-    '70775502227', 'Carolina das Neves', 'cdn09872435@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('988931207');
 
-tp_Pessoa(
-    '07262636308', 'Vitor Hugo Caldeira', 'vhc278679375@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('999149467');
 
-tp_Pessoa(
-    '86385882594', 'Vicente Rocha', 'vr5555@yahoo.com.br',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('923149499');
 
-tp_Pessoa(
-    '62704882819', 'Noah Alves', 'nha256@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('995439467');
 
-tp_Pessoa(
-    '06651573325', 'Arthur Nogueira', 'athn776543999@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('942749467');
 
-tp_Pessoa(
-    '25952848788', 'Isabel Rodrigues', 'ir4432211@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('915009467');
 
-tp_Pessoa(
-    '06402073325', 'Vitor Henrique', 'vithen@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('977749467');
 
-tp_Pessoa(
-    '40510573325', 'Vinicius José', 'vinjose@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
+tp_Telefone('974209467');
 
-tp_Pessoa(
-    '90805502227', 'Fernanda Diniz', 'ferdi@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
-
-tp_Pessoa(
-    '99124502227', 'Fabio Alpes','fabal@gmail.com',
-    SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '',
-    tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-);
-
--- inserção na tabela telefone 
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('36386225'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('7923149467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('984149467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('923991327'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('923148027'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('988931207'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('999149467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('923149499'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('995439467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('942749467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('915009467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('977749467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('974209467'));
-
-INSERT INTO tb_Telefone VALUES(
-tp_Telefone('940609467'));
+tp_Telefone('940609467');
 
 
 -- inserção na tabela endereco
@@ -286,11 +223,11 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('21511110', 'Rua Gentil de Almeida', null, 'apt. 21')
+    tp_Endereco('21511110', 'Rua Gentil de Almeida', 'apt. 21')
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('88702446', 'Rua Caminho da Luz', 167, null)
+    tp_Endereco('88702446', 'Rua Caminho da Luz', 167)
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -306,7 +243,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('84036145', 'Rua Joaquim Jurandir Collares', 202, null)
+    tp_Endereco('84036145', 'Rua Joaquim Jurandir Collares', 202)
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -318,7 +255,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('64088510', 'Rua Pindaíba', 78, null)
+    tp_Endereco('64088510', 'Rua Pindaíba', 78)
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -350,7 +287,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('65630970', 'Rua Magalhães de Almeida', 98, null)
+    tp_Endereco('65630970', 'Rua Magalhães de Almeida', 98)
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -358,7 +295,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('79114200', 'Rua Oswaldo Goeld', null, null)
+    tp_Endereco('79114200', 'Rua Oswaldo Goeld')
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -374,7 +311,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('69313405', 'Rua Raimunda Mendes de Almeida', null, 'apt. 102')
+    tp_Endereco('69313405', 'Rua Raimunda Mendes de Almeida', 'apt. 102')
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -382,23 +319,23 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('27213000', 'Rua A', null, 'Casa')
+    tp_Endereco('27213000', 'Rua A', 'Casa')
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('69312593', 'Rua Sobral', 32, null)
+    tp_Endereco('69312593', 'Rua Sobral', 32)
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('24020000', 'Rua Almeida', null, 'Casa')
+    tp_Endereco('24020000', 'Rua Almeida', 'Casa')
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('27556600', 'Rua Imperial', null, 'Casa')
+    tp_Endereco('27556600', 'Rua Imperial', 'Casa')
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('88926600', 'Rua Aurora', null, 'Casa')
+    tp_Endereco('88926600', 'Rua Aurora', 'Casa')
 );
 
 INSERT INTO tb_Endereco VALUES(
@@ -406,7 +343,7 @@ INSERT INTO tb_Endereco VALUES(
 );
 
 INSERT INTO tb_Endereco VALUES(
-    tp_Endereco('64289080', 'Rua Cruzeiro do Forte', 112, 'Casa')
+    tp_Endereco('64289081', 'Rua Cruzeiro do Forte', 112, 'Casa')
 );
 
 
@@ -415,55 +352,166 @@ INSERT INTO tb_Endereco VALUES(
 INSERT INTO tb_Funcionario
     VALUES (
         tp_Funcionario(
-        tp_Pessoa(
             '56991573326', 'Marcelo Campos', 'macam@gmail.com',
-            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = ''),
-            tp_Telefones(SELECT REF(t) FROM tb_Telefone WHERE t.num_tel in ('', ...))
-        ),
-        '02/04/2021','Diretor',8000)
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '49038420'),
+            tp_Telefones(tp_Telefone('36386225'), tp_Telefone('7923149467')),
+            '02/04/2021','Diretor',8000, null
+        )
     );
 
 INSERT INTO tb_Funcionario
-    VALUES ('06402073325','22/07/2021','Monitor',2200,'56991573326');
+    VALUES (
+        tp_Funcionario(
+            '06402073325', 'Vitor Henrique', 'vithen@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '54080420'),
+            null,
+            '22/07/2021','Monitor',2200,
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '56991573326')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('06651573325','15/09/2021','Monitor',1500,'06402073325');
+    VALUES (
+        tp_Funcionario(
+            '06651573325', 'Arthur Nogueira', 'athn776543999@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '49038420'),
+            null,
+            '15/09/2021','Monitor',1500,
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '06402073325')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('40510573325','12/04/2021','Monitor',2300,'56991573326');
+    VALUES (
+        tp_Funcionario(
+            '40510573325', 'Vinicius José', 'vinjose@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '21511110'),
+            null,
+            '12/04/2021','Monitor',2300,
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '56991573326')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('90805502227','07/01/2021','Gerente',2850,'56991573326');  
+    VALUES (
+        tp_Funcionario(
+            '90805502227', 'Fernanda Diniz', 'ferdi@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '26060370'),
+            null,
+            '07/01/2021','Gerente',2850,
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '56991573326')
+        )
+    );  
 
 INSERT INTO tb_Funcionario
-    VALUES ('99124502227','15/02/2021','Gerente ',2700,'90805502227');
+    VALUES (
+        tp_Funcionario(
+            '99124502227', 'Fabio Alpes','fabal@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '26062420'),
+            null,
+            '15/02/2021','Gerente ',2700,
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '90805502227')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('41582782792', '02/03/2023', 'Supervisor', 3000, '99124502227');
+    VALUES (
+        tp_Funcionario(
+            '41582782792', 'Alice Jesus', 'aj2463@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64088510'),
+            null,
+            '02/03/2023', 'Supervisor', 3000, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '99124502227')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('25952848788', '02/03/2023', 'Supervisor', 3000, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '25952848788', 'Isabel Rodrigues', 'ir4432211@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '88702446'),
+            null,
+            '02/03/2023', 'Supervisor', 3000, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('62704882819', '10/11/2022', 'Gerente', 5000, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '62704882819', 'Noah Alves', 'nha256@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '54080420'),
+            null,
+            '10/11/2022', 'Gerente', 5000, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
     
 INSERT INTO tb_Funcionario
-    VALUES ('86385882594', '11/11/2022', 'Gerente', 5000, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '86385882594', 'Vicente Rocha', 'vr5555@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '76913744'),
+            null,
+            '11/11/2022', 'Gerente', 5000, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('07262636308', '30/05/2022', 'Monitor', 4500, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '07262636308', 'Vitor Hugo Caldeira', 'vhc278679375@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '27213000'),
+            null,
+            '30/05/2022', 'Monitor', 4500, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('70775502227', '29/09/2022', 'Monitor', 4500, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '70775502227', 'Carolina das Neves', 'cdn09872435@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64289080'),
+            null,
+            '29/09/2022', 'Monitor', 4500, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('18041727662', '29/09/2022', 'Monitor', 4500, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '18041727662', 'Thales Nogueira', 'tn90825@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64289081'),
+            null,
+            '29/09/2022', 'Monitor', 4500, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('89987766420', '20/01/2023', 'Monitor', 4500, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '89987766420', 'Helena Barbosa', 'hb245@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '27213000'),
+            null,
+            '20/01/2023', 'Monitor', 4500, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 INSERT INTO tb_Funcionario
-    VALUES ('25455186892', '15/01/2023', 'Gerente', 5000, '41582782792');
+    VALUES (
+        tp_Funcionario(
+            '25455186892', 'Luiz Felipe da Costa', 'lfdc@hotmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64289081'),
+            null,
+            '15/01/2023', 'Gerente', 5000, 
+            (SELECT REF(f) FROM tb_Funcionario f WHERE f.cpf = '41582782792')
+        )
+    );
 
 -- inserção na tabela vendedor
 

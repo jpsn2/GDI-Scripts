@@ -1,7 +1,6 @@
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 ALTER SESSION SET NLS_TIMESTAMP_FORMAT = 'DD-MM-YYYY HH24-MI-SS';
 
-DROP TABLE tb_Telefone;
 DROP TABLE tb_Venda;
 DROP TABLE tb_Disponibiliza;
 DROP TABLE tb_Vendedor;
@@ -17,31 +16,60 @@ CREATE OR REPLACE TYPE tp_Telefone AS OBJECT(
     num_tel varchar2(12)
 )FINAL;
 /
-CREATE OR REPLACE TYPE tp_Telefones AS VARRAY(10) of REF tp_Telefone;
+CREATE OR REPLACE TYPE tp_Telefones AS VARRAY(10) of tp_Telefone;
 /
 CREATE OR REPLACE TYPE tp_Endereco AS OBJECT(
     cep char(8),
     rua varchar2(60),
     numero number,
-    complemento varchar2(15)
+    complemento varchar2(15),
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2) RETURN SELF AS RESULT,
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2, numero number) RETURN SELF AS RESULT,
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2, comp varchar2) RETURN SELF AS RESULT
 )FINAL;
 /
-CREATE OR REPLACE TYPE tp_Pessoa AS OBJECT(
+CREATE OR REPLACE TYPE BODY tp_Endereco IS
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2) RETURN SELF AS RESULT IS
+        BEGIN
+            SELF.cep := cep;
+            SELF.rua := rua;
+            RETURN;
+        END;
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2, numero number) RETURN SELF AS RESULT IS
+        BEGIN
+            SELF.cep := cep;
+            SELF.rua := rua;
+            SELF.numero := numero;
+            RETURN;
+        END;
+    CONSTRUCTOR FUNCTION tp_Endereco(cep varchar2, rua varchar2, comp varchar2) RETURN SELF AS RESULT IS
+        BEGIN
+            SELF.cep := cep;
+            SELF.rua := rua;
+            SELF.complemento := comp;
+            RETURN;
+        END;
+END;
+/
+CREATE OR REPLACE TYPE tp_Cadastro AS OBJECT(
     cpf char(11),
     nome varchar2(60),
     email varchar2(60),
     endereco REF tp_Endereco,
     telefones tp_Telefones,
-    MEMBER PROCEDURE mostraPessoa,
     MAP MEMBER FUNCTION get_Cep RETURN char
-)NOT FINAL NOT INSTANTIABLE;
+) NOT FINAL NOT INSTANTIABLE;
 /
-CREATE OR REPLACE TYPE BODY tp_Pessoa AS
-    MAP MEMBER FUNCTION get_Cep RETURN char(8) IS
+CREATE OR REPLACE TYPE BODY tp_Cadastro AS
+    MAP MEMBER FUNCTION get_Cep RETURN varchar2 IS
         BEGIN
             RETURN endereco.cep;
         END;
 END;
+/
+CREATE OR REPLACE TYPE tp_Pessoa UNDER tp_Cadastro(
+    MEMBER PROCEDURE mostraPessoa
+)NOT FINAL;
 /
 CREATE OR REPLACE TYPE tp_Funcionario UNDER tp_Pessoa(
     data_adm date,
@@ -49,20 +77,10 @@ CREATE OR REPLACE TYPE tp_Funcionario UNDER tp_Pessoa(
     salario number,
     supervisor REF tp_Funcionario, --*minimundo
     FINAL MEMBER PROCEDURE set_Salario (new_salario number),
-    CONSTRUCTOR FUNCTION tp_Funcionario (p tp_Pessoa, dat Date, fun varchar2, sal number, super REF tp_Funcionario) RETURN SELF AS RESULT,
     OVERRIDING MEMBER PROCEDURE mostraPessoa
 )FINAL;
 /
-CREATE OR REPLACE TYPE BODY tp_Funcionario AS
-    CONSTRUCTOR FUNCTION tp_Funcionario (p tp_Pessoa, dat Date, fun varchar2(20), sal number, super REF tp_Funcionario) RETURN SELF AS RESULT IS
-        BEGIN
-            cpf: = p.cpf; nome := p.nome; email := p.email; endereco := p.endereco; telefones := p.telefones;
-            data_adm := dat;
-            funcao := fun;
-            salario := sal;
-            supervisor := super;
-            RETURN;
-        END;
+CREATE OR REPLACE TYPE BODY tp_Funcionario IS
     FINAL MEMBER PROCEDURE set_salario (new_salario number) IS
         BEGIN
             salario := new_salario;
@@ -71,13 +89,17 @@ CREATE OR REPLACE TYPE BODY tp_Funcionario AS
         BEGIN
             dbms_output.put_line('Descrição do Funcionário:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nome);
-            dbms_output.put_line('email: ' || email);
-            dbms_output.put_line('endereço: ' || endereco.rua || ', ' || endereco.numero);
-            dbms_output.put_line('data de admissão: ' || to_char(data_adm));
-            dbms_output.put_line('função: ' || funcao);
-            dbms_output.put_line('salário: ' || salario);
-            dbms_output.put_line('cpf supervisor: ' || supervisor.cpf);
+            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
+            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
+            dbms_output.put_line('endereço: ' || 
+                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
+                nvl(endereco, endereco.numero, ''));
+            dbms_output.put_line('data de admissão: ' ||
+                nvl(data_adm, to_char(data_adm), 'não informado'));
+            dbms_output.put_line('função: ' || nvl(funcao, funcao, 'não informado'));
+            dbms_output.put_line('salário: ' || nvl(salario, salario, 'não informado'));
+            dbms_output.put_line('cpf supervisor: ' ||
+                nvl(supervisor, supervisor.cpf, 'não informado'));
         END;
 END;
 /
@@ -91,7 +113,6 @@ CREATE OR REPLACE TYPE tp_Vendedor UNDER tp_Pessoa(
     data_registro date,
     cnpj char(14),
     assistentes tp_nt_Assistente,
-    CONSTRUCTOR FUNCTION tp_Vendedor (p tp_Pessoa, dat date, cnpj_v varchar2, assist tp_nt_Assistente) RETURN SELF AS RESULT,
     MEMBER FUNCTION get_Assistentes RETURN tp_nt_Assistente,
     OVERRIDING MEMBER PROCEDURE mostraPessoa
 )FINAL;
@@ -99,28 +120,23 @@ CREATE OR REPLACE TYPE tp_Vendedor UNDER tp_Pessoa(
 ALTER TYPE tp_Assistente ADD ATTRIBUTE
     (vendedor REF tp_vendedor) CASCADE; --*minimundo
 /
-CREATE OR REPLACE TYPE BODY tp_Vendedor AS 
-    CONSTRUCTOR FUNCTION tp_Vendedor (p tp_Pessoa, dat date, cnpj_v varchar2(14), assist tp_nt_Assistente) RETURN SELF AS RESULT IS
-        BEGIN
-            cpf: = p.cpf; nome := p.nome; email := p.email; endereco := p.endereco; telefones := p.telefones;
-            data_registro := dat;
-            cnpj := cnpj_v;
-            assistentes := assist;
-            RETURN;
-        END;
+CREATE OR REPLACE TYPE BODY tp_Vendedor IS 
     MEMBER FUNCTION get_Assistentes RETURN tp_nt_Assistente IS
         BEGIN
             RETURN assistentes;
         END;
     OVERRIDING MEMBER PROCEDURE mostraPessoa IS
         BEGIN
-            dbms_output.put_line('Descrição do Funcionário:');
+            dbms_output.put_line('Descrição do Vendedor:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nome);
-            dbms_output.put_line('email: ' || email);
-            dbms_output.put_line('endereço: ' || endereco.rua || ', ' || endereco.numero);
-            dbms_output.put_line('data de registro: ' || to_char(data_registro));
-            dbms_output.put_line('cnpj: ' || cnpj);
+            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
+            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
+            dbms_output.put_line('endereço: ' ||
+                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
+                nvl(endereco, endereco.numero, 'não informado'));
+            dbms_output.put_line('data de registro: ' ||
+                nvl(data_registro, to_char(data_registro), 'não informado'));
+            dbms_output.put_line('cnpj: ' || nvl(cnpj, cnpj, 'não informado'));
         END;
 END;
 /
@@ -130,31 +146,25 @@ CREATE OR REPLACE TYPE tp_Cartao_fidelidade AS OBJECT(
 /
 CREATE OR REPLACE TYPE tp_Cliente UNDER tp_Pessoa(
     cnpj char(14),
-    cartao_fidelidade tp_Cartao_fidelidade,
-    CONSTRUCTOR FUNCTION tp_Cliente (p tp_Pessoa, cnpj_c varchar2, cart tp_Cartao_fidelidade) RETURN SELF AS RESULT,
     OVERRIDING MEMBER PROCEDURE mostraPessoa
 )FINAL;
 /
-ALTER TYPE tp_Cartao_fidelidade ADD ATTRIBUTE
-    (cliente REF tp_Cliente) CASCADE; --*minimundo
+ALTER TYPE tp_Cliente ADD ATTRIBUTE
+    (cartao_fidelidade tp_Cartao_fidelidade) CASCADE; --*minimundo
 /
-CREATE OR REPLACE TYPE BODY tp_Cliente AS 
-    CONSTRUCTOR FUNCTION tp_Cliente (p tp_Pessoa, cnpj_c varchar2(14), cart tp_Cartao_fidelidade) RETURN SELF AS RESULT IS
-        BEGIN
-            cpf: = p.cpf; nome := p.nome; email := p.email; endereco := p.endereco; telefones := p.telefones;
-            cnpj := cnpj_c;
-            cartao_fidelidade := cart;
-            RETURN;
-        END;
+CREATE OR REPLACE TYPE BODY tp_Cliente IS 
     OVERRIDING MEMBER PROCEDURE mostraPessoa IS
         BEGIN
-            dbms_output.put_line('Descrição do Funcionário:');
+            dbms_output.put_line('Descrição do Cliente:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nome);
-            dbms_output.put_line('email: ' || email);
-            dbms_output.put_line('endereço: ' || endereco.rua || ', ' || endereco.numero);
-            dbms_output.put_line('cartao fidelidade: ' || cartao_fidelidade.cod_cartao);
-            dbms_output.put_line('cnpj: ' || cnpj);
+            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
+            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
+            dbms_output.put_line('endereço: ' ||
+                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
+                nvl(endereco, endereco.numero, 'não informado'));
+            dbms_output.put_line('cartao fidelidade: ' ||
+                nvl(cartao_fidelidade, cartao_fidelidade.cod_cartao, 'não informado'));
+            dbms_output.put_line('cnpj: ' || nvl(cnpj, cnpj, 'não informado'));
         END;
 END;
 /
@@ -165,10 +175,11 @@ CREATE OR REPLACE TYPE tp_Espaco AS OBJECT(
     comissao number,
     funcionario REF tp_Funcionario,
     CONSTRUCTOR FUNCTION tp_Espaco (cod number, tam char, tipo char, com number, func tp_Funcionario) RETURN SELF AS RESULT,
-    ORDER MEMBER FUNCTION comparaTamanho(esp tp_Espaco) RETURN NUMBER
+    ORDER MEMBER FUNCTION comparaTamanho(esp tp_Espaco) RETURN NUMBER,
+    MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor
 )FINAL;
 /
-CREATE OR REPLACE TYPE BODY tp_Espaco AS 
+CREATE OR REPLACE TYPE BODY tp_Espaco IS 
     CONSTRUCTOR FUNCTION tp_Espaco (cod number, tam char(1), tipo char(1), com number, func tp_Funcionario) RETURN SELF AS RESULT IS
         BEGIN
             cod_espaco := cod
@@ -187,6 +198,16 @@ CREATE OR REPLACE TYPE BODY tp_Espaco AS
             ELSE THEN
                 RETURN 1;
             END IF; 
+        END;
+    MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor IS
+            vend tp_Vendedor;
+        BEGIN
+            SELECT VALUE(d.vendedor) INTO vend
+            FROM tb_Disponibiliza d
+            WHERE DEREF(d.espaco).cod_espaco = self.cod_espaco
+                and d.periodo_venda = 'M';
+
+            RETURN vend;
         END;
 END;
 /
@@ -213,17 +234,13 @@ CREATE OR REPLACE TYPE tp_Disponibiliza AS OBJECT(
     vendedor REF tp_Vendedor,
     funcionario REF tp_Funcionario,
     espaco REF tp_Espaco,
-    periodo char(1), --*minimundo
+    periodo_venda char(1), --*minimundo
     data_inicio date,
     data_fim date
 )FINAL;
 /
 
 --------------------- criação de tabelas
-
-CREATE TABLE tb_Telefone OF tp_Telefone(
-    num_tel primary key
-);
 
 CREATE TABLE tb_Endereco OF tp_Endereco(
     cep primary key,
@@ -282,7 +299,7 @@ CREATE TABLE tb_Disponibiliza OF tp_Disponibiliza (
     vendedor WITH ROWID REFERENCES tb_Vendedor,
     funcionario WITH ROWID REFERENCES tb_Funcionario,
     espaco WITH ROWID REFERENCES tb_Espaco,
-    constraint periodo_ck check (periodo in ('M','T','N')),
+    constraint periodo_ck check (periodo_venda in ('M','T','N')),
     constraint data_fim_ck check (data_fim >= data_inicio)
 );
 
