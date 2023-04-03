@@ -515,102 +515,612 @@ INSERT INTO tb_Funcionario
 
 -- inserção na tabela vendedor
 
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('72610547200', '28/09/2021');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('02702912532', '25/12/2022');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('21542193818', '14/02/2019', '49155590088587');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('26348686850', '10/12/2021', '69799235852540');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('37521229517', '23/01/2021');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('23238276344', '03/04/2022');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('11467512060', '31/10/2019', '95348312139969');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('24366201640', '13/08/2022', '29569137111307');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('25666674978', '16/11/2023', '39667455254750');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('38540174804', '15/05/2020');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('41582782792', '10/10/2019');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('25455186892', '24/07/2023');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('18041727662', '20/03/2022', '29836175987778');
-INSERT INTO vendedor(cpf_vendedor, data_registro)
-	VALUES ('86385882594', '11/10/2021');
-INSERT INTO vendedor(cpf_vendedor, data_registro, cnpj)
-	VALUES ('62704882819', '11/12/2023', '72900262685102');
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '72610547200', 'Pedro Lucas Barbosa', 'plb2526@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '49087423'),
+            tp_Telefones(tp_Telefone('923148027')),
+            '28/09/2021', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '72610547200')
+            )
+        )
+    WHERE cpf = '72610547200';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '02702912532', 'Calebe Ferreira', 'cf9485@hotmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '88702446'),
+            tp_Telefones(tp_Telefone('999149467')),
+            '25/12/2022', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Rodrigo Ferreira de Souza',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '02702912532')
+            )
+        )
+    WHERE cpf = '02702912532';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '21542193818', 'Eduardo Cardoso', 'ec3333@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '94828106'),
+            tp_Telefones(tp_Telefone('923149499')),
+            '14/02/2019', '49155590088587',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '21542193818')
+            )
+        )
+    WHERE cpf = '21542193818';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '26348686850', 'Kamilly Aragão', 'kafd56367@outlook.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '26060370'),
+            tp_Telefones(tp_Telefone('942749467')),
+            '10/12/2021', '69799235852540',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Renato Martins de Moura',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '26348686850')
+            )
+        )
+    WHERE cpf = '26348686850';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '37521229517', 'Luana Melo', 'lm@cin.ufpe.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '84036145'),
+            tp_Telefones(tp_Telefone('915009467')),
+            '23/01/2021', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Marília Luísa de Santana',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '37521229517')
+            )
+        )
+    WHERE cpf = '37521229517';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '23238276344', 'Ana Júlia das Neves', 'ajdn0935@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '58058340'),
+            tp_Telefones(tp_Telefone('977749467')),
+            '03/04/2022', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '23238276344')
+            )
+        )
+    WHERE cpf = '23238276344';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '11467512060', 'Larissa Moura', 'lm@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64088510'),
+            tp_Telefones(tp_Telefone('940609467')),
+            '31/10/2019', '95348312139969',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '11467512060')
+            )
+        )
+    WHERE cpf = '11467512060';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '24366201640', 'Kevin Almeida', 'ka4325@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78132808'),
+            tp_Telefones(tp_Telefone('96554562'), tp_Telefone('894543116')),
+            '13/08/2022', '29569137111307',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Ruy Magalhães',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '24366201640')),
+		tp_Assistente(
+    			'Pedro Souza Silva',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '24366201640')
+            )
+        )
+    WHERE cpf = '24366201640';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '25666674978', 'Carolina Duarte', 'cd87875672678@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78725030'),
+            tp_Telefones(tp_Telefone('56944332'), tp_Telefone('984352400')),
+            '16/11/2023', '39667455254750',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Ana Souza de Lima',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '25666674978')
+            )
+        )
+    WHERE cpf = '25666674978';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '38540174804', 'Bruna Monteiro', 'bmdsaf24@outlook.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '54080420'),
+            tp_Telefones(tp_Telefone('955724560')),
+            '5/05/2020', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '38540174804')
+            )
+        )
+    WHERE cpf = '38540174804';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '41582782792', 'Alice Jesus', 'aj2463@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '65630970'),
+            tp_Telefones(),
+            '10/10/2019', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Luísa Freire',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '41582782792')
+            )
+        )
+    WHERE cpf = '41582782792';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '25455186892', 'Luiz Felipe da Costa', 'lfdc@hotmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78552105'),
+            tp_Telefones(tp_Telefone('9673243601'), tp_Telefone('90349234')),
+            '24/07/2023', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '25455186892')
+            )
+        )
+    WHERE cpf = '25455186892';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '18041727662', 'Thales Nogueira', 'tn90825@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = 'cepv76913744endedor'),
+            tp_Telefones(tp_Telefone('93488203')),
+            '20/03/2022', '29836175987778',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Adriano de Souza Lima',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '18041727662')),
+		tp_Assistente(
+    			'Guilherme De Luca',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '18041727662'))
+        )
+    WHERE cpf = '18041727662';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '86385882594', 'Vicente Rocha', 'vr5555@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '69313405'),
+            tp_Telefones(tp_Telefone('938428451')),
+            '11/10/2021', null,
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'nomeassistente',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '86385882594'))
+        )
+    WHERE cpf = '86385882594';
+
+INSERT INTO tb_Vendedor
+    VALUES (
+        tp_Vendedor(
+            '62704882819', 'Noah Alves', 'nha256@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '68906091'),
+            tp_Telefones(tp_Telefone('91802104'), tp_Telefone('953224981')),
+            '11/12/2023', '72900262685102',
+    		tp_nt_Assistente()
+        )
+    );
+UPDATE tb_Vendedor
+    SET assistentes = 
+    	tp_nt_Assistente(
+    		tp_Assistente(
+    			'Pedro Luís Silva',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '62704882819')),
+		tp_Assistente(
+    			'Lucas Pereira de Morais',
+    			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '62704882819'))
+        )
+    WHERE cpf = '62704882819';
     
 -- inserção na tabela cliente
 
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('44882211491', '78239009188379');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('17267832946');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('64784744290');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('85449302711');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('26348686850', '40744428773628');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('37521229517', '39718905425493');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('11467512060', '95348312139969');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('31109286635');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('24366201640');
-INSERT INTO cliente(cpf_cliente, cnpj) 
-    VALUES ('25666674978', '39667455254750');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('75708608706', '14919544252152');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('38540174804');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('29586233197', '39286626777506');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('41582782792');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('89987766420', '36951827922116');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('70775502227');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('07262636308', '43837950543179');
-INSERT INTO cliente(cpf_cliente)
-    VALUES ('86385882594');
-INSERT INTO cliente(cpf_cliente, cnpj)
-    VALUES ('25952848788', '24090254388633');
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '44882211491', 'Miguel Alves', 'ma356@outlook.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '29090820'),
+            tp_Telefones(tp_Telefone('984149467')),
+            '78239009188379',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+  INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '17267832946', 'Ana Vitória Vieira', 'avc259@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78120786'),
+            tp_Telefones(tp_Telefone('923991327')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+ INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '64784744290', 'João Nascimento', 'jn2@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '21511110'),
+            tp_Telefones(tp_Telefone('988931207')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '85449302711', 'Marcelo Rocha', 'mrq45@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '26062420'),
+            tp_Telefones(tp_Telefone('995439467')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '26348686850', 'Kamilly Aragão', 'kafd56367@outlook.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '26060370'),
+            tp_Telefones(tp_Telefone('942749467')),
+            '40744428773628',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '37521229517', 'Luana Melo', 'lm@cin.ufpe.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '84036145'),
+            tp_Telefones(tp_Telefone('915009467')),
+            '39718905425493',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '11467512060', 'Larissa Moura', 'lm@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64088510'),
+            tp_Telefones(tp_Telefone('940609467')),
+            '95348312139969',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '31109286635', 'Renan Silveira', 'rsj32j@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '64001010'),
+            tp_Telefones(tp_Telefone('92382754')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '24366201640', 'Kevin Almeida', 'ka4325@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78132808'),
+            tp_Telefones(tp_Telefone('98274641'),tp_Telefone('923828010')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '25666674978', 'Carolina Duarte', 'cd87875672678@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '78725030'),
+            tp_Telefones(tp_Telefone('94837274')),
+            '39667455254750',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '75708608706', 'Pedro Lucas Martins', 'plm24243f@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '79100290'),
+            tp_Telefones(),
+            '14919544252152',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '38540174804', 'Pedro Lucas Martins', 'plm24243f@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '79100290'),
+            tp_Telefones(tp_Telefone('94837372')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '29586233197', 'Manuela Caldeira', 'mc432659@outlook.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '76801198'),
+            tp_Telefones(tp_Telefone('93883875'),tp_Telefone('683998302')),
+            '39286626777506',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '41582782792', 'Alice Jesus', 'aj2463@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '65630970'),
+            tp_Telefones(tp_Telefone('920398483')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '89987766420', 'Helena Barbosa', 'hb245@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '79114200'),
+            tp_Telefones(tp_Telefone('8473883858'),tp_Telefone('38583948')),
+            '36951827922116',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '70775502227', 'Carolina das Neves', 'cdn09872435@gmail.co',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '69039080'),
+            tp_Telefones(),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );  
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '07262636308', 'Vitor Hugo Caldeira', 'vhc278679375@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '84051010'),
+            tp_Telefones(tp_Telefone('85939838')),
+            '43837950543179',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '86385882594', 'Vicente Rocha', 'vr5555@yahoo.com.br',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '69313405'),
+            tp_Telefones(tp_Telefone('48339885')),
+            null,
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
+
+INSERT INTO tb_Cliente
+    VALUES (
+        tp_Cliente(
+            '25952848788', 'Isabel Rodrigues', 'ir4432211@gmail.com',
+            (SELECT REF(e) FROM tb_Endereco e WHERE e.cep = '69312593'),
+            tp_Telefones(tp_Telefone('928785730'),tp_Telefone('38586901')),
+            '24090254388633',
+    		tp_Cartao_fidelidade(cod_fid.NEXTVAL)
+        )
+    );
     
 -- inserção na tabela espaco
 
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'P','P',11,'06651573325');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'P','P',12,'06651573325');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'P','P',11,'06402073325');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','P',12,'06402073325');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','B',14,'40510573325');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','B',15,'56991573326');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'G','B',17,'56991573326');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'G','B',17,'90805502227');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','B',14,'90805502227');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','P',12,'99124502227');
-INSERT INTO espaco(cod_espaco, tamanho, tipo, comissao, cpf_funcionario)
-    VALUES (cod_esp.NEXTVAL,'M','P',13,'99124502227');
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'P', 'P', 11,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '06651573325')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'P', 'P', 12,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '06651573325')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'P', 'P', 11,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '06402073325')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'P', 12,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '06402073325')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'B', 14,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '40510573325')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'B', 15,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '56991573326')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'G', 'B', 17,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '56991573326')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'G', 'B', 17,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '90805502227')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'B', 14,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '90805502227')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'P', 12,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '99124502227')
+        )
+    );
+
+INSERT INTO tb_Espaco
+    VALUES (
+        tp_Espaco(
+            cod_esp.NEXTVAL, 'M', 'P', 13,
+            (SELECT REF(f) FROM tb_funcionario f WHERE f.cpf = '99124502227')
+        )
+    );
     
 -- inserção na tabela produto
 
