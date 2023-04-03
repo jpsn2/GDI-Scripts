@@ -185,8 +185,8 @@ CREATE OR REPLACE TYPE BODY tp_Espaco IS
             cod_espaco := cod
             tamanho := tam;
             tipo := tipo;
-            cnpj := cnpj;
-            cnpj := cnpj;
+            comissao := com;
+            funcionario := func;
             RETURN;
         END;
     ORDER MEMBER FUNCTION comparaTamanho(esp tp_Espaco) RETURN NUMBER IS
