@@ -155,34 +155,26 @@ CREATE OR REPLACE TYPE tp_Espaco AS OBJECT(
     tipo char(1),
     comissao number,
     funcionario REF tp_Funcionario,
-    CONSTRUCTOR FUNCTION tp_Espaco (cod number, tam char, tipo char, com number, func tp_Funcionario) RETURN SELF AS RESULT,
     ORDER MEMBER FUNCTION comparaComissao(esp tp_Espaco) RETURN NUMBER,
-    MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor
+    MEMBER PROCEDURE get_Vendedor_Manha
 )FINAL;
 /
 CREATE OR REPLACE TYPE BODY tp_Espaco IS 
-    CONSTRUCTOR FUNCTION tp_Espaco (cod number, tam char(1), tipo char(1), com number, func tp_Funcionario) RETURN SELF AS RESULT IS
-        BEGIN
-            cod_espaco := cod
-            tamanho := tam;
-            tipo := tipo;
-            comissao := com;
-            funcionario := func;
-            RETURN;
-        END;
     ORDER MEMBER FUNCTION comparaComissao(esp tp_Espaco) RETURN NUMBER IS
+            c number;
         BEGIN
-            RETURN SELF.comissao - esp.comissao;
+            c := SELF.comissao - esp.comissao;
+            RETURN c;
         END;
-    MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor IS
-            vend tp_Vendedor;
+    MEMBER PROCEDURE get_Vendedor_Manha IS
+            vend_cpf char(11);
         BEGIN
-            SELECT VALUE(d.vendedor) INTO vend
+            SELECT DEREF(d.vendedor).cpf INTO vend_cpf
             FROM tb_Disponibiliza d
             WHERE DEREF(d.espaco).cod_espaco = self.cod_espaco
                 and d.periodo_venda = 'M';
 
-            RETURN vend;
+            dbms_output.put_line(vend_cpf);
         END;
 END;
 /

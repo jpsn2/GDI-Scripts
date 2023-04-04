@@ -1,4 +1,4 @@
--- getNome():
+-- MAP FUNCTION getNome():
     -- funcionario
 SELECT cpf, nome
 FROM tb_Funcionario f
@@ -15,7 +15,7 @@ FROM tb_Cliente c
 ORDER BY c.getNome();
 
 
--- mostraPessoa():
+-- OVERRIDING MEMBER PROCEDURE mostraPessoa():
     -- funcionario
 DECLARE
 	func tp_Funcionario;
@@ -51,7 +51,7 @@ BEGIN
 END;
 
 
--- set_Salario()
+-- FINAL MEMBER PROCEDURE set_Salario()
 DECLARE
 	func tp_Funcionario;
 BEGIN
@@ -66,20 +66,24 @@ BEGIN
 END;
 
 
--- get_Assistentes()
+-- MEMBER FUNCTION get_Assistentes()
 SELECT nome FROM TABLE(SELECT v.get_Assistentes()
                         FROM tb_Vendedor v
                         WHERE v.cpf = '02702912532');
 
 
--- comparaComissao()
+-- ORDER MEMBER FUNCTION comparaComissao()
 SELECT DEREF(vendedor).cpf, DEREF(espaco).cod_espaco, DEREF(espaco).comissao
 FROM tb_Disponibiliza d
 ORDER BY DEREF(d.espaco);
 
--- get_Vendedor_Manha()
+-- MEMBER PROCEDURE get_Vendedor_Manha()
 DECLARE
-
+    esp tp_Espaco;
 BEGIN
+    SELECT VALUE(e) INTO esp
+    FROM tb_Espaco e
+    WHERE e.cod_espaco = 3;
 
+    esp.get_Vendedor_Manha();
 END;
