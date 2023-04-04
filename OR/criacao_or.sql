@@ -75,7 +75,7 @@ CREATE OR REPLACE TYPE tp_Funcionario UNDER tp_Pessoa(
     data_adm date,
     funcao varchar2(20),
     salario number,
-    supervisor REF tp_Funcionario, --*minimundo
+    supervisor REF tp_Funcionario, 
     FINAL MEMBER PROCEDURE set_Salario (new_salario number),
     OVERRIDING MEMBER PROCEDURE mostraPessoa
 )FINAL;
@@ -118,7 +118,7 @@ CREATE OR REPLACE TYPE tp_Vendedor UNDER tp_Pessoa(
 )FINAL;
 /
 ALTER TYPE tp_Assistente ADD ATTRIBUTE
-    (vendedor REF tp_vendedor) CASCADE; --*minimundo
+    (vendedor REF tp_vendedor) CASCADE; 
 /
 CREATE OR REPLACE TYPE BODY tp_Vendedor IS 
     MEMBER FUNCTION get_Assistentes RETURN tp_nt_Assistente IS
@@ -150,7 +150,7 @@ CREATE OR REPLACE TYPE tp_Cliente UNDER tp_Pessoa(
 )FINAL;
 /
 ALTER TYPE tp_Cliente ADD ATTRIBUTE
-    (cartao_fidelidade tp_Cartao_fidelidade) CASCADE; --*minimundo
+    (cartao_fidelidade tp_Cartao_fidelidade) CASCADE; 
 /
 CREATE OR REPLACE TYPE BODY tp_Cliente IS 
     OVERRIDING MEMBER PROCEDURE mostraPessoa IS
@@ -220,10 +220,10 @@ CREATE OR REPLACE TYPE tp_Produto AS OBJECT(
 /
 CREATE OR REPLACE TYPE tp_Venda AS OBJECT(
     data_hora timestamp,
-    produto REF tp_Produto, --*minimundo
-    cliente REF tp_Cliente, --*minimundo
-    vendedor REF tp_Vendedor, --*minimundo
-    funcionario REF tp_Funcionario, --*minimundo
+    produto REF tp_Produto, 
+    cliente REF tp_Cliente, 
+    vendedor REF tp_Vendedor, 
+    funcionario REF tp_Funcionario, 
     desconto number,
     quantidade number,
     valor_unit number,
@@ -234,7 +234,7 @@ CREATE OR REPLACE TYPE tp_Disponibiliza AS OBJECT(
     vendedor REF tp_Vendedor,
     funcionario REF tp_Funcionario,
     espaco REF tp_Espaco,
-    periodo_venda char(1), --*minimundo
+    periodo_venda char(1), 
     data_inicio date,
     data_fim date
 )FINAL;
