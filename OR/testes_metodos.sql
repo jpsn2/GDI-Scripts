@@ -61,6 +61,7 @@ BEGIN
 
     func.mostraPessoa();
     func.set_Salario(3000);
+    dbms_output.put_line('==================');
     func.mostraPessoa();
 END;
 
@@ -72,33 +73,9 @@ SELECT nome FROM TABLE(SELECT v.get_Assistentes()
 
 
 -- comparaComissao()
-DECLARE
-    esp1 tp_Espaco;
-    esp2 tp_Espaco;
-    comp_esp number;
-BEGIN
-    SELECT VALUE(e) INTO esp1
-    FROM tb_Espaco e
-    WHERE cod_espaco = 1; -- comissao = 11
-
-    SELECT VALUE(e) INTO esp2
-    FROM tb_Espaco e
-    WHERE cod_espaco = 5; -- comissao = 14
-
-    comp_esp := esp1.comparaComissao(esp2);
-
-    IF comp_esp < 0 THEN
-        dbms_output.put_line('O espaco ' || to_char(esp1.cod_espaco) ||
-            'e mais barato que o espaco ' || to_char(esp2.cod_espaco));
-    ELSIF comp_esp > 0 THEN
-        dbms_output.put_line('O espaco ' || to_char(esp1.cod_espaco) ||
-            'e mais caro o espaco ' || to_char(esp2.cod_espaco));
-    ELSE
-        dbms_output.put_line('O espaco ' || to_char(esp1.cod_espaco) ||
-            'tem o mesmo valor que o espaco ' || to_char(esp2.cod_espaco));
-    END IF;
-END;
-
+SELECT DEREF(vendedor).cpf, DEREF(espaco).cod_espaco, DEREF(espaco).comissao
+FROM tb_Disponibiliza d
+ORDER BY DEREF(d.espaco);
 
 -- get_Vendedor_Manha()
 DECLARE
