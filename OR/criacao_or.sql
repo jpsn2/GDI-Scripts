@@ -57,18 +57,19 @@ CREATE OR REPLACE TYPE tp_Cadastro AS OBJECT(
     email varchar2(60),
     endereco REF tp_Endereco,
     telefones tp_Telefones,
-    MAP MEMBER FUNCTION get_Cep RETURN char
+    MAP MEMBER FUNCTION getNome RETURN varchar2
 ) NOT FINAL NOT INSTANTIABLE;
 /
 CREATE OR REPLACE TYPE BODY tp_Cadastro AS
-    MAP MEMBER FUNCTION get_Cep RETURN varchar2 IS
+    MAP MEMBER FUNCTION getNome RETURN varchar2 IS
+            n varchar2(60) := nome;
         BEGIN
-            RETURN endereco.cep;
+            RETURN n;
         END;
 END;
 /
 CREATE OR REPLACE TYPE tp_Pessoa UNDER tp_Cadastro(
-    MEMBER PROCEDURE mostraPessoa
+    MEMBER PROCEDURE mostraPessoa(SELF tp_Pessoa)
 )NOT FINAL;
 /
 CREATE OR REPLACE TYPE tp_Funcionario UNDER tp_Pessoa(
@@ -77,7 +78,7 @@ CREATE OR REPLACE TYPE tp_Funcionario UNDER tp_Pessoa(
     salario number,
     supervisor REF tp_Funcionario, 
     FINAL MEMBER PROCEDURE set_Salario (new_salario number),
-    OVERRIDING MEMBER PROCEDURE mostraPessoa
+    OVERRIDING MEMBER PROCEDURE mostraPessoa (SELF tp_Funcionario)
 )FINAL;
 /
 CREATE OR REPLACE TYPE BODY tp_Funcionario IS
@@ -85,21 +86,13 @@ CREATE OR REPLACE TYPE BODY tp_Funcionario IS
         BEGIN
             salario := new_salario;
         END;
-    OVERRIDING MEMBER PROCEDURE mostraPessoa IS
+    OVERRIDING MEMBER PROCEDURE mostraPessoa(SELF tp_Funcionario) IS
         BEGIN
             dbms_output.put_line('Descrição do Funcionário:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
-            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
-            dbms_output.put_line('endereço: ' || 
-                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
-                nvl(endereco, endereco.numero, ''));
-            dbms_output.put_line('data de admissão: ' ||
-                nvl(data_adm, to_char(data_adm), 'não informado'));
-            dbms_output.put_line('função: ' || nvl(funcao, funcao, 'não informado'));
-            dbms_output.put_line('salário: ' || nvl(salario, salario, 'não informado'));
-            dbms_output.put_line('cpf supervisor: ' ||
-                nvl(supervisor, supervisor.cpf, 'não informado'));
+            dbms_output.put_line('nome: ' || nome);
+            dbms_output.put_line('função: ' || funcao);
+            dbms_output.put_line('salário: ' || to_char(salario));
         END;
 END;
 /
@@ -114,7 +107,7 @@ CREATE OR REPLACE TYPE tp_Vendedor UNDER tp_Pessoa(
     cnpj char(14),
     assistentes tp_nt_Assistente,
     MEMBER FUNCTION get_Assistentes RETURN tp_nt_Assistente,
-    OVERRIDING MEMBER PROCEDURE mostraPessoa
+    OVERRIDING MEMBER PROCEDURE mostraPessoa(SELF tp_Vendedor)
 )FINAL;
 /
 ALTER TYPE tp_Assistente ADD ATTRIBUTE
@@ -125,18 +118,12 @@ CREATE OR REPLACE TYPE BODY tp_Vendedor IS
         BEGIN
             RETURN assistentes;
         END;
-    OVERRIDING MEMBER PROCEDURE mostraPessoa IS
+    OVERRIDING MEMBER PROCEDURE mostraPessoa(SELF tp_Vendedor) IS
         BEGIN
             dbms_output.put_line('Descrição do Vendedor:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
-            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
-            dbms_output.put_line('endereço: ' ||
-                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
-                nvl(endereco, endereco.numero, 'não informado'));
-            dbms_output.put_line('data de registro: ' ||
-                nvl(data_registro, to_char(data_registro), 'não informado'));
-            dbms_output.put_line('cnpj: ' || nvl(cnpj, cnpj, 'não informado'));
+            dbms_output.put_line('nome: ' || nome);
+            dbms_output.put_line('cnpj: ' || nvl(cnpj, 'não informado'));
         END;
 END;
 /
@@ -146,25 +133,19 @@ CREATE OR REPLACE TYPE tp_Cartao_fidelidade AS OBJECT(
 /
 CREATE OR REPLACE TYPE tp_Cliente UNDER tp_Pessoa(
     cnpj char(14),
-    OVERRIDING MEMBER PROCEDURE mostraPessoa
+    OVERRIDING MEMBER PROCEDURE mostraPessoa(SELF tp_Cliente)
 )FINAL;
 /
 ALTER TYPE tp_Cliente ADD ATTRIBUTE
     (cartao_fidelidade tp_Cartao_fidelidade) CASCADE; 
 /
 CREATE OR REPLACE TYPE BODY tp_Cliente IS 
-    OVERRIDING MEMBER PROCEDURE mostraPessoa IS
+    OVERRIDING MEMBER PROCEDURE mostraPessoa(SELF tp_Cliente) IS
         BEGIN
             dbms_output.put_line('Descrição do Cliente:');
             dbms_output.put_line('cpf: ' || cpf);
-            dbms_output.put_line('nome: ' || nvl(nome, nome, 'não informado'));
-            dbms_output.put_line('email: ' || nvl(email, email, 'não informado'));
-            dbms_output.put_line('endereço: ' ||
-                nvl(endereco, endereco.rua, 'não informado') || ', ' ||
-                nvl(endereco, endereco.numero, 'não informado'));
-            dbms_output.put_line('cartao fidelidade: ' ||
-                nvl(cartao_fidelidade, cartao_fidelidade.cod_cartao, 'não informado'));
-            dbms_output.put_line('cnpj: ' || nvl(cnpj, cnpj, 'não informado'));
+            dbms_output.put_line('nome: ' || nome);
+            dbms_output.put_line('cnpj: ' || nvl(cnpj, 'não informado'));
         END;
 END;
 /
@@ -175,7 +156,7 @@ CREATE OR REPLACE TYPE tp_Espaco AS OBJECT(
     comissao number,
     funcionario REF tp_Funcionario,
     CONSTRUCTOR FUNCTION tp_Espaco (cod number, tam char, tipo char, com number, func tp_Funcionario) RETURN SELF AS RESULT,
-    ORDER MEMBER FUNCTION comparaTamanho(esp tp_Espaco) RETURN NUMBER,
+    ORDER MEMBER FUNCTION comparaComissao(esp tp_Espaco) RETURN NUMBER,
     MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor
 )FINAL;
 /
@@ -189,15 +170,9 @@ CREATE OR REPLACE TYPE BODY tp_Espaco IS
             funcionario := func;
             RETURN;
         END;
-    ORDER MEMBER FUNCTION comparaTamanho(esp tp_Espaco) RETURN NUMBER IS
+    ORDER MEMBER FUNCTION comparaComissao(esp tp_Espaco) RETURN NUMBER IS
         BEGIN
-            IF tamanho < esp.tamanho THEN
-                RETURN -1;
-            ELSE IF tamanho = esp.tamanho THEN
-                RETURN 0;
-            ELSE THEN
-                RETURN 1;
-            END IF; 
+            RETURN SELF.comissao - esp.comissao;
         END;
     MEMBER FUNCTION get_Vendedor_Manha RETURN tp_Vendedor IS
             vend tp_Vendedor;
