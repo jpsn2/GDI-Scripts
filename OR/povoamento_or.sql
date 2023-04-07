@@ -344,7 +344,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Marinalva Luísa de Melo',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '72610547200')
             )
         )
@@ -384,7 +384,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Fernando Ricardo',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '21542193818')
             )
         )
@@ -444,7 +444,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Joanna Vitória Almeida',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '23238276344')
             )
         )
@@ -464,7 +464,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Petra Soarez Dutra',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '11467512060')
             )
         )
@@ -527,7 +527,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Marília Augusta Fernanda',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '38540174804')
             )
         )
@@ -567,7 +567,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Fernando Luiz Silva',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '25455186892')
             )
         )
@@ -609,7 +609,7 @@ UPDATE tb_Vendedor
     SET assistentes = 
     	tp_nt_Assistente(
     		tp_Assistente(
-    			'nomeassistente',
+    			'Rogério Lucena',
     			(SELECT REF(v) FROM tb_vendedor v WHERE v.cpf = '86385882594'))
         )
     WHERE cpf = '86385882594';
@@ -1120,43 +1120,43 @@ INSERT INTO tb_Disponibiliza
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '72610547200'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '18041727662'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 1),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '13/12/2022', '23/05/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '02702912532'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 2),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '23/10/2022', '15/05/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '21542193818'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06651573325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 3),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '18/11/2022', '23/05/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '26348686850'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 4),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '23/12/2022', '21/03/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '37521229517'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 5),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '23/12/2022', '12/03/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '23238276344'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06651573325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 6),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '23/12/2022', '29/01/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '11467512060'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '89987766420'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 7),
-        'M', '23/12/2022', '23/05/2023');
+        'M', '23/05/2022', '12/12/2022');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '24366201640'),
@@ -1168,7 +1168,7 @@ INSERT INTO tb_Disponibiliza
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '25666674978'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 9),
-        'T', '23/12/2022', '23/05/2023');
+        'T', '10/10/2022', '01/02/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '38540174804'),
@@ -1180,7 +1180,7 @@ INSERT INTO tb_Disponibiliza
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '41582782792'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 0),
-        'T', '23/12/2022', '23/05/2023');
+        'T', '16/12/2022', '25/05/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '25455186892'),
@@ -1192,16 +1192,16 @@ INSERT INTO tb_Disponibiliza
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '18041727662'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '70775502227'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 7),
-        'T', '23/12/2022', '23/05/2023');
+        'T', '10/06/2022', '12/02/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '86385882594'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '70775502227'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 1),
-        'T', '23/12/2022', '23/05/2023');
+        'T', '23/11/2022', '23/05/2023');
 INSERT INTO tb_Disponibiliza
     VALUES (
         (SELECT REF(v) FROM tb_Vendedor v WHERE cpf = '62704882819'),
         (SELECT REF(f) FROM tb_Funcionario f WHERE cpf = '06402073325'),
         (SELECT REF(e) FROM tb_Espaco e WHERE cod_espaco = 3),
-        'N', '23/12/2022', '23/05/2023');
+        'N', '05/12/2022', '15/03/2023');
